@@ -18,6 +18,11 @@ function navigateToMatchScouting() {
     // win
 }
 
+function navigatetoAdminPanel() {
+        console.error("Impossible d'acceder a la base de donnees admin"),
+        alert("Connexion bloquee  par un administrateur")
+      }
+
 /// CHAMP ADMIS POUR LES CONSOLE.LOG - LOGS MANUEL permettant de se retrouver dans les modes de developpement.
 console.error("Licence: Absente")
 
