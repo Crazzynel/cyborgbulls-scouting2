@@ -1,0 +1,14 @@
+appId: com.cyborgbulls.scouting
+productName: CyborgBulls Scouting
+copyright:  Copyright © 2024 Antoine FC
+directories:
+  output: build
+win:
+  target: nsis
+  icon: 9102.png
+mac:
+  target: dmg
+  icon: 9102.png
+linux:
+  target: AppImage
+  icon: 9102.png

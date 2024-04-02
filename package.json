@@ -1,0 +1,19 @@
+{
+  "name": "cyborgbulls-scouting",
+  "version": "1.0.0",
+  "description": "App de scouting CyborgBulls",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "App",
+    "CyborgBulls",
+    "Scouting"
+  ],
+  "author": "Antoine Fabre",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^29.1.6"
+  }
+}

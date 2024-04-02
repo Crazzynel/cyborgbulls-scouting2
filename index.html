@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - CyborgBulls Scouting 2024</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img  class="crescendo_logo"src="images/FIS_CRESCENDO_Logo_Horizontal_RGB.png" alt="Logo Crescendo">
+        </div>
+        <div class="header-center">
+            <h1>CyborgBulls - Scouting S23</h1>
+        </div>
+        <div class="header-right">
+            <img src="images/cyborg logo.webp" alt="Logo CyborgBulls">
+        </div>
+    </header>
+    <main>
+        <div class="scouter-info">
+            <div class="info-box">
+                <label for="scouterName">Scouter Name:</label>
+                <input type="text" id="scouterName">
+                <button onclick="saveScouterName()">Save Name</button>
+            </div>
+        </div>
+        <div class="scout-buttons">
+            <button class="button_scout_pit" onclick="navigateToPitScouting()">
+                <img class="scout_icon" src="images/tkt.png" alt="Pit Icon">
+                <span>SCOUT PIT</span>
+            </button>
+            <button class="button_scout_match" onclick="navigateToMatchScouting()">
+                <img class="scout_icon" src="images/temps.png" alt="Match Icon">
+                <span>SCOUT MATCH</span>
+            </button>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 CyborgBulls - Tous Droits Réservés.</p>
+    </footer>
+</body>
+</html>

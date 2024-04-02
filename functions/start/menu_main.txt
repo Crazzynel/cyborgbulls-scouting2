@@ -1,0 +1,11 @@
+{
+            label: 'FRC Teams .csv',
+            submenu: [
+                {
+                    label: 'Access log teams',
+                    role: window.loadFile('loading.html')
+                }
+            ]
+        }
+
+Ce run ne fonctionne pas vu que l'application electron n'est pas en capacité de lire la définition "window" sans code auparavant. 

@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-right {
+    flex: 0;
+}
+
+.header-center {
+    flex: 7;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.scouter-info {
+    margin-bottom: 20px;
+}
+
+.info-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.scout-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button_scout_match {
+    background-color: #0066B3
+}
+
+.button_scout_pit {
+    background-color: #ED1C24
+}
+
+.scout-buttons button {
+    width: 45%;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+img  {
+    width: 130px;
+}
+
+.scout_icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px; /* Add some space between the icon and the text */
+}
+
+.button_scout_pit, .button_scout_match {
+    min-width: 150px; /* Set a minimum width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+}
+
+.crescendo_logo {
+    width: 170px;
+    height: auto;
+}

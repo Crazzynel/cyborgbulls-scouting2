@@ -1,0 +1,3 @@
+function redirectToResearch() {
+    window.location.href="./"
+}
