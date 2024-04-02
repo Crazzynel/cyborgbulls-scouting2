@@ -114,8 +114,11 @@ const createMainWindow = () => {
                 },
                 { type: 'separator'},
                 {
-                    label:  'État de la licence: Invalide',
-                    role: ''
+                    label:  'État de la licence: Valide',
+                    click () {
+                        console.log("Ouverture des informations de la licence effectuée par USER")
+                        mainWindow.loadFile('./functions/licenseStatus.html')
+                    }
                 },
             ]
         }
