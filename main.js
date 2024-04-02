@@ -1,6 +1,39 @@
 const { app, BrowserWindow, Menu } = require('electron');
 let mainWindow;
+let loadingWindow; // Déclaration de la fenêtre de chargement
 
+// Ce code est fourni sans licence. Ce qui exprime l'acces libre au code a tous les utilisateurs.
+// Nous commentons le code pour faciliter les comprehensions. 
+
+// Fonction pour créer la fenêtre de chargement
+const createLoadingWindow = () => {
+    console.log('Creating loading window...'); // Message de création de la fenêtre de chargement
+    loadingWindow = new BrowserWindow({
+        width: 400,
+        height: 300,
+        frame: false,
+        transparent: true,
+        webPreferences: {
+            nodeIntegration: true,
+            frame: false,
+        }
+    });
+
+    loadingWindow.loadFile('loading.html');
+
+    loadingWindow.on('closed', () => {
+        console.log('Loading window is closed.'); // Message indiquant que la fenêtre de chargement est fermée
+        loadingWindow = null;
+        createMainWindow();
+    });
+
+    setTimeout(() => {
+        console.log('Closing loading window after timeout...'); // Message indiquant que la fenêtre de chargement se ferme après un délai
+        loadingWindow.close();
+    }, 12000);
+};
+
+// Fonction pour créer la fenêtre principale
 const createMainWindow = () => {
     console.log('Creating main window...');
     mainWindow = new BrowserWindow({
@@ -93,7 +126,7 @@ const createMainWindow = () => {
 
 app.on('ready', () => {
     console.log('Application is ready.');
-    createMainWindow();
+    createLoadingWindow(); // Appel de la fonction pour créer la fenêtre de chargement
 });
 
 app.on('window-all-closed', () => {
