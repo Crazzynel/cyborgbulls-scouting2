@@ -4,7 +4,8 @@
   "description": "App de scouting CyborgBulls",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "keywords": [
     "App",
@@ -14,6 +15,7 @@
   "author": "Antoine Fabre",
   "license": "UNLICENSED",
   "devDependencies": {
-    "electron": "^29.1.6"
+    "electron": "^29.1.6",
+    "electron-builder": "^24.13.3"
   }
 }
