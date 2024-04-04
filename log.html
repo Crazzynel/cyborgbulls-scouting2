@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Vérification de la Licence - CYBORGBULLS 9102</title>
+    <meta name="author" content="Antoine Fabre">
+    <meta charset="UTF-8">
+    <style>
+        /* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container_header {
+    background-color: rgba(51, 51, 51, 0.7); /* Couleur de fond avec une transparence de 50% */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.input_form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond avec une transparence de 50% */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input_form h2 {
+    margin-top: 0;
+}
+
+.input_form input[type="text"],
+.input_form input[type="date"],
+.input_form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.input_form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.input_form button:hover {
+    background-color: #555;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/images_backgr.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur d'opacité */
+    z-index: -1; /* Assurez-vous que l'arrière-plan reste en arrière-plan */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <!-- Header de la page -->
+    <header>
+        <div class="container_header">
+            <h1>CYBORGBULLS - VERIFICATION DE LICENCE</h1>
+        </div>
+    </header>
+
+    <div class="input_form">
+        <h2>Vérification de la Licence</h2>
+        <!-- Champ pour saisir le nom -->
+        <input type="text" id="nom" placeholder="Nom">
+        <br>
+        <!-- Champ pour saisir le prénom -->
+        <input type="text" id="prenom" placeholder="Prénom">
+        <br>
+        <!-- Champ pour saisir la date -->
+        <input type="date" id="date" placeholder="Date">
+        <br>
+        <!-- Champ pour saisir la valeur de la licence -->
+        <input type="text" id="licence" placeholder="Numéro de licence">
+        <br>
+        <!-- Bouton pour vérifier la licence -->
+        <button onclick="verifierLicence()">Vérifier</button>
+        <br>
+        <!-- Lien pour retourner à la page d'accueil -->
+        <p>Pas de licence? <a href="index.html">Cliquez ici</a>.</p>
+    </div>
+
+    <div class="footer">
+        <p>Vous pouvez trouver des informations sur l'accès à votre licence sur une page secondaire.</p>
+    </div>
+
+    <script>
+        var licences = {
+            licenceA: "EkzEvtS1u1vvKerpTgG1",
+            licenceB: "JCIBPEbkELZYxCSc7sBP",
+            licenceC: "mUIgUeY9h0cFgxp8Ow1d"
+        }
+        function verifierLicence() {
+            
+            // Récupérer la valeur saisie dans le champ de licence
+            // Récupérer les valeurs saisies dans les champs
+            var nom = document.getElementById("nom").value;
+            var prenom = document.getElementById("prenom").value;
+            var date = document.getElementById("date").value;
+            var licence = document.getElementById("licence").value;
+
+            if (licence === licences.licenceA || licence === licences.licenceB || licence === licences.licenceC) {
+                // Afficher un message d'erreur si le champ est vide
+                alert("Correct.");
+            } else {
+                // Si le champ n'est pas vide, rediriger vers une autre page ou exécuter d'autres actions
+                // (À implémenter selon vos besoins)
+                alert("Le code de la licence est erroné. Si vous ne disposez pas de compte, cliquez sur le texte: Pas de Licence ?");
+            }
+        }
+    </script>
+</body>
+</html>
