@@ -10,12 +10,15 @@ Malgré les licences libres, le contenu de l'application CyborgBulls reste restr
 
 ## Installation
 
-...
+<sub>L'installation se fait en quleques simples parties. Veuillez suivre les étapes suivantes </sub>
 
-## How to use ? 
+1. Télécharger le pack de deux façons:  
+> A. Télécharger l'entièreté du fichier "BUILD" compris dans le code (peut inclure certains fichiers de pré-téléchargement lors de la compilation et compression du code)
 
-...
+> B. En accédant immédiatement à la page des [Releases - en Cliquant ici](https://github.com/Crazzynel/cyborgbulls-scouting2/releases)
 
-## Disponibilité du Code Source: 
+## SIGNALER UN BUG 
 
-Certaines applications, en raison de la taille, n'ont pas été déployées. En cas de question, vous pouvez envoyer un mail à nakanosan@gmx.fr
+Pour signaler un bug sur l'application , vous pouvez  utiliser le formulaire compris dans les issues. 
+[En cliquant sur le lien suivant](https://github.com/Crazzynel/cyborgbulls-scouting2#issues)
+

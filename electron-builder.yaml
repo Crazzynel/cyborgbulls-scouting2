@@ -1,6 +1,6 @@
 appId: com.cyborgbulls.scouting
 productName: CyborgBulls Scouting
-copyright:  Copyright © 2024 Antoine FC
+copyright: Copyright © year ${author}
 directories:
   output: build
 win:
