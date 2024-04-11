@@ -20,5 +20,5 @@ Malgré les licences libres, le contenu de l'application CyborgBulls reste restr
 ## SIGNALER UN BUG 
 
 Pour signaler un bug sur l'application , vous pouvez  utiliser le formulaire compris dans les issues. 
-[En cliquant sur le lien suivant](https://github.com/Crazzynel/cyborgbulls-scouting2#issues)
+[En cliquant sur le lien suivant](https://github.com/Crazzynel/cyborgbulls-scouting2/issues)
 
