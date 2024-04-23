@@ -10,7 +10,8 @@ L'application est destinée à l'équipe de robotique CyborgBulls pour le Scouti
 L'application de scouting ***CyborgBulls***, vous propose deux fonctionnalités: 
 - Un scouting MATCH
 - Un scouting PIT
-<br> Chacun de ces scoutings s'accompagne bien entendu de "points" d'information pouvant vous aider à remplir au mieux l'application
+<br> Chacun de ces scoutings s'accompagne bien entendu de "points" d'information pouvant vous aider à remplir au mieux l'application 
+<br> En cours d'ajout
 ## Installation
 
 <sub>L'installation se fait en quleques simples parties. Veuillez suivre les étapes suivantes </sub>
