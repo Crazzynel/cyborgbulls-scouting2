@@ -62,7 +62,6 @@ const createMainWindow = () => {
                 {
                     label: 'Retour à l\'accueil',
                     click: () => {
-                        console.log('Navigating back to home page...');
                         mainWindow.loadFile('./index.html');
                     } 
                 },
@@ -116,7 +115,6 @@ const createMainWindow = () => {
                 {
                     label:  'État de la licence: Valide',
                     click () {
-                        console.log("Ouverture des informations de la licence effectuée par USER")
                         mainWindow.loadFile('log.html')
                         // Il faut faire en sorte que l'application reconnaisse un fichier log pour la connexion.... ou bien que ce soit rappellé aux membres avant le démarrage d'entrer les licences...
                     }

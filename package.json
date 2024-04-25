@@ -1,6 +1,6 @@
 {
   "name": "cyborgbulls-scouting",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "App de scouting CyborgBulls",
   "main": "main.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "Scouting"
   ],
   "author": "Antoine Fabre",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "electron": "^29.1.6",
     "electron-builder": "^24.13.3"

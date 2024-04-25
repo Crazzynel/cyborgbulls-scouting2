@@ -138,7 +138,7 @@ function generateCSV() {
   teleoperatedActionsLink.href = URL.createObjectURL(teleoperatedActionsCSV);
   teleoperatedActionsLink.download = "teleoperated_actions.csv";
   teleoperatedActionsLink.click();
-  alert("Votre fichier CSV a bien été téléchargé ! ")
+  alert("Votre fichier en .csv à bien été téléchargé ! ")
 }
 
 
