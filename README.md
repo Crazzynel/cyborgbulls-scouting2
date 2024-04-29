@@ -4,13 +4,9 @@
 > **Des modifications majeures de la structure de ce projet sont en cours**
 > 
 > Le fonctionnement du code risque de changer de manière importante, merci de ne pas merge sur `main`
-> 
-> Nous vous notifierons du retour du code.
 
 
 L'application est destinée à l'équipe de robotique CyborgBulls pour le Scouting de la Saison 2023-24 de FIRST Robotics Competition.
-
-### Etat du programme: Privé
 
 ## Utilisation
 
@@ -25,6 +21,12 @@ L'application de scouting ***CyborgBulls***, vous propose deux fonctionnalités:
 
 1. Télécharger le pack de deux façons:  
 > A. Télécharger l'entièreté du fichier "BUILD" compris dans le code (peut inclure certains fichiers de pré-téléchargement lors de la compilation et compression du code)
+>
+> [!WARNING]  
+> **La Section "Build" est temporairement désactivée.**
+> 
+> Le temps de réaliser ces mises à jour, nous vous remercions de ne pas tenter de déployer un build sur cette repository.
+>
 
 > B. En accédant immédiatement à la page des [Releases - en Cliquant ici](https://github.com/Crazzynel/cyborgbulls-scouting2/releases)
 >>Précisions concernant les releases: 
