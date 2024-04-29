@@ -22,9 +22,6 @@ Actuellement, tous les fichiers essentiels de l'application sont visibles sur Gi
 
 Nous accueillons toutes les contributions pour améliorer CyborgBulls Scouting ! Les types de contributions attendues incluent : correction de bugs, amélioration du code, ajout de fonctionnalités, amélioration de la documentation, etc.
 
-Parfait, voici la mise à jour de la section correspondante :
-
----
 
 ## Processus de Contribution
 
