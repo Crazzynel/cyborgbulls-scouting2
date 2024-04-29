@@ -44,4 +44,5 @@ Pour démarrer le développement, assurez-vous d'avoir installé les outils suiv
 
 ## Licence
 
-Ce projet est sous licence propre au projet. La licence existante est déjà disponible et s'applique au projet.
+Ce projet est sous licence propre au projet. La licence existante est déjà disponible et s'applique au projet. 
+Vous pouvez la [consulter ici](https://github.com/Crazzynel/cyborgbulls-scouting2?tab=License-1-ov-file#readme).
