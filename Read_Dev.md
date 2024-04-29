@@ -1,25 +1,50 @@
-# Conditions de développement de l'application
+# CyborgBulls Scouting - Developer README
 
-Ce fichier est une documentation pour savoir comment améliorer le code sans aucun problème. Que ça passe par les deployments, les build et plus, tout sera consigné ici afin que ça reste clair. 
+## Bienvenue !
 
-## Conception du code
+Bienvenue dans le projet CyborgBulls Scouting ! Ce README est destiné aux développeurs qui souhaitent contribuer au développement de notre application de scouting pour la FIRST Robotics Competition (FRC).
 
-Le code est conçu pour pouvoir être étudié par des lycéens. Ce serait utile qu'il reste le plus facilement lisible possible. Les codes "mis en suspens" doivent être ajoutés dans le fichier ./functions/[Nom de la page]/[Function name]
+## Aperçu du Projet
 
-## Relatif aux Pull Requests
+CyborgBulls Scouting vise à simplifier le processus de scouting pour les équipes de la FRC, en fournissant un outil convivial et efficace pour collecter, analyser et partager des données sur les équipes concurrentes.
 
-Concernant les pull requests, vous devez en faire une en précisant le mieux possible le contenu ajouté. Cela nous permettra de savoir ce que vous avez fait et les mises à jour à faire. 
-Nous pourrons aussi éclaircir le code au besoin. 
+## Technologies Utilisées
 
-## Les issues
+- **Langages**: HTML, CSS, JavaScript
+- **Frameworks**: Electron, Electron Builder
+- **Autres Outils**: NPM, Node.js
 
-À faire impérativement en cas de bug sur l'application. Que ce soit au système des updates ou non, nous devons pouvoir traiter les bugs le plus vite possible.
+## Structure du Projet
 
-## Commits
+Actuellement, tous les fichiers essentiels de l'application sont visibles sur GitHub. Dans le futur, nous prévoyons de réorganiser le GitHub avec trois dossiers distincts : Code Source, Ressources, App Build.
 
-Les commits sont réalisés sous sign-off. Cela signifie que les e-mails sont indiqués dans le commit. Que nous puissions savoir si c'est bien vu qui avez réalisé ou non le commit et qu'une sorte d'authenticité soit réalisée.
-**Précision: Cela signifie que notre DevTeam peut vous contacter pour ajouter une vérification**
+## Contributions Attendues
+
+Nous accueillons toutes les contributions pour améliorer CyborgBulls Scouting ! Les types de contributions attendues incluent : correction de bugs, amélioration du code, ajout de fonctionnalités, amélioration de la documentation, etc.
+
+Parfait, voici la mise à jour de la section correspondante :
+
+---
+
+## Processus de Contribution
+
+- **Bugs et Suggestions d'Ajout**: Les contributeurs peuvent créer une issue pour signaler un bug ou suggérer une nouvelle fonctionnalité. Si l'issue est approuvée (pour une nouvelle fonctionnalité), une pull request pourra être déployée et sera étudiée par les reviewers.
+- **Autres Contributions**: Pour toute autre contribution, les contributeurs peuvent directement soumettre une pull request. Cette pull request devra être approuvée par au moins deux contributeurs (ou propriétaires) avant d'être fusionnée.
 
 
-# Précisions:
-Ce règlement est en cours de conception et donc incomplet.
+## Contacts
+
+Les principaux contacts pour le projet CyborgBulls Scouting sont l'équipe de développement de CyborgBulls et les contributeurs principaux.
+
+## Installation
+
+Pour démarrer le développement, assurez-vous d'avoir installé les outils suivants :
+
+- Electron
+- Electron Builder
+- Node.js
+- NPM
+
+## Licence
+
+Ce projet est sous licence propre au projet. La licence existante est déjà disponible et s'applique au projet.
