@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion au panneau admin</title>
+    <style>
+        body {
+            background-color: #c5c5c5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 200px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Connexion au panneau admin</h2>
+        <input type="text" id="userID" placeholder="Identifiant"><br><br>
+        <input type="password" id="userPassword" placeholder="Mot de passe"><br><br>
+        <button onclick="connectionAdminPanel()">Se connecter</button>
+    </div>
+
+    <script src="connect.js"></script>
+</body>
+</html>
