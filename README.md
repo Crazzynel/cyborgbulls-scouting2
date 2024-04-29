@@ -22,10 +22,10 @@ L'application de scouting ***CyborgBulls***, vous propose deux fonctionnalités:
 1. Télécharger le pack de deux façons:  
 > A. Télécharger l'entièreté du fichier "BUILD" compris dans le code (peut inclure certains fichiers de pré-téléchargement lors de la compilation et compression du code)
 >
-> [!WARNING]  
+> > [!WARNING]  
 > **La Section "Build" est temporairement désactivée.**
-> 
-> Le temps de réaliser ces mises à jour, nous vous remercions de ne pas tenter de déployer un build sur cette repository.
+> >
+> > Le temps de réaliser ces mises à jour, nous vous remercions de ne pas tenter de déployer un build sur cette repository.
 >
 
 > B. En accédant immédiatement à la page des [Releases - en Cliquant ici](https://github.com/Crazzynel/cyborgbulls-scouting2/releases)
