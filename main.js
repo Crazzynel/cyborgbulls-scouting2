@@ -120,6 +120,18 @@ const createMainWindow = () => {
                     }
                 },
             ]
+        },
+        {
+            label: 'Contributions',
+            submenu: [
+                {
+                    label: 'Accéder à la page des Contributeurs',
+                    click () {
+                        mainWindow.loadFile('./contributors/page.html')
+                    // Dans cette situation, ajout d'un console.log pour suivre le bon fonctionnement de la commande.
+                    }
+                }
+            ]
         }
     ]);
 
