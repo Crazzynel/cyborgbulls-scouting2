@@ -48,7 +48,8 @@ body {
         <br>
         <div class="loading-spinner" id="loading-spinner"></div>
         <p id="loading-text">Chargement en cours...</p>
-        <p>Version 1.0.0 Bêta</p>
+        <p>Version 1.3.0</p>
+        <sub>Build officiel - Stable Version</sub>
     </div>
 
     <script>
@@ -71,9 +72,9 @@ body {
 
                 if (index === paragraphs.length) {
                     loadingSpinner.classList.add('loading-complete'); // Ajout de la classe pour la couleur verte
-                    setTimeout(2000);
+                    setTimeout(1500);
                 } else {
-                    setTimeout(showNextParagraph, 2000); // Changement de texte toutes les 3 secondes
+                    setTimeout(showNextParagraph, 1500); // Changement de texte toutes les 3 secondes
                 }
             }
         }
