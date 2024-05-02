@@ -6,7 +6,7 @@ const developers = [
         description: "Développeur de l'application CyborgBulls Scouting. <br> Il apporte son soutien à d'autres projets open source. Quoique débutant dans ce domaine, il cherchera toujours à se surpasser pour offrir un travail fini <br> et le plus qualitatif possible.",
         projectsLink: "https://github.com/Crazzynel"
     },
-    // Ajoutez d'autres développeurs si nécessaire
+    // Ajout de soutiens/Contributeurs/développeurs en dupliquant la const
 ];
 
 const githubContributors = [
@@ -17,7 +17,7 @@ const githubContributors = [
         projectsLink: "https://github.com/lulIaby",
         //contributeLevel: "9"
     },
-    // Ajoutez d'autres contributeurs Github si nécessaire
+    // Ajout de soutiens/Contributeurs/développeurs en dupliquant la const
 ];
 
 const supporters = [
@@ -27,7 +27,7 @@ const supporters = [
         description: "Equipe de robotique située à Saint-Christol-Lès-Alès dans le Gard.<br> Leur aide dans le projet a nos contributeurs et étudiants engagés de découvrir la programmation de manière plus ludique. .",
         projectsLink: "https://cyborgbulls.fr"
     },
-    // Ajoutez d'autres soutiens si nécessaire
+    // Ajout de soutiens/Contributeurs/développeurs en dupliquant la const
 ];
 
 // Fonction pour créer un cadre utilisateur
