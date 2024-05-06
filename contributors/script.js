@@ -23,7 +23,7 @@ const supporters = [
     {
         name: "CyborgBulls",
         image: "./assets/9102.png",
-        description: "Equipe de robotique située à Saint-Christol-Lès-Alès dans le Gard.<br> Leur aide dans le projet a nos contributeurs et étudiants engagés de découvrir la programmation de manière plus ludique.",
+        description: "Equipe de robotique située à Saint-Christol-Lès-Alès dans le Gard.<br> Leur aide dans le projet a permit à nos contributeurs et étudiants engagés de découvrir la programmation de manière plus ludique.",
         projectsLink: "https://cyborgbulls.fr"
     },
     // Ajout de soutiens/Contributeurs/développeurs en dupliquant la const
