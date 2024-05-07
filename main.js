@@ -1,4 +1,7 @@
 const { app, BrowserWindow, Menu } = require('electron');
+const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
+
 let mainWindow;
 let loadingWindow; // Déclaration de la fenêtre de chargement
 
@@ -31,6 +34,20 @@ const createLoadingWindow = () => {
         console.log('Closing loading window after timeout...'); // Message indiquant que la fenêtre de chargement se ferme après un délai
         loadingWindow.close();
     }, 12000);
+};
+
+const generateAndSaveSessionId = () => {
+    const sessionDirectory = './admin_panel/ids'; // Spécifiez le chemin complet du répertoire
+    if (!fs.existsSync(sessionDirectory)) {
+        fs.mkdirSync(sessionDirectory, { recursive: true });
+    }
+    const sessionFilePath = `${sessionDirectory}/session.js`;
+
+    if (!fs.existsSync(sessionFilePath)) {
+        const sessionId = uuidv4();
+        fs.writeFileSync(sessionFilePath, `const SESSION_ID = '${sessionId}';\n`);
+        console.log('Identifiant de session généré pour le premier démarrage :', sessionId);
+    }
 };
 
 // Fonction pour créer la fenêtre principale
@@ -138,9 +155,12 @@ const createMainWindow = () => {
     Menu.setApplicationMenu(customMenu);
 };
 
+// Appel de la fonction pour générer et enregistrer l'identifiant de session lors du premier démarrage
+generateAndSaveSessionId();
+
 app.on('ready', () => {
     console.log('Application is ready.');
-    createLoadingWindow(); // Appel de la fonction pour créer la fenêtre de chargement
+    createLoadingWindow();
 });
 
 app.on('window-all-closed', () => {

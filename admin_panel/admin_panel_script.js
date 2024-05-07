@@ -39,7 +39,7 @@ function getUserSession() {
 }
 
 function getUserAddress() {
-    return "Code d'accès bloqué "; // Remplacer par la fonction ou variable qui génère l'adresse utilisateur -> 
+    return Session_ID; // Remplacer par la fonction ou variable qui génère l'adresse utilisateur -> Immpossibilité de récupérer l'identifiant session de l'utilisateur.
 }
 
 //function getLicenceId() {
