@@ -1,5 +1,9 @@
 
 # 9102 Scouting 2024
+
+> [!IMPORTANT]
+> Pour contribuer au projet, rendez vous à la secion [Contribuer au projet](https://github.com/Crazzynel/cyborgbulls-scouting2#Contribuer).
+
 > [!WARNING]  
 > **Des modifications majeures de la structure de ce projet sont en cours**
 > 
@@ -28,6 +32,11 @@ L'application de scouting ***CyborgBulls***, vous propose deux fonctionnalités:
 >>Précisions concernant les releases: 
 <br> Vu que nous les déployons au fur et à mesure pensez à prendre un package avec le correctif "latest". <br>
 Ca vous permettra de suivre l'application avec les correctifs les plus récents.
+
+## Contribuer 
+> [!NOTE]
+> Cette section est en cours de conception.
+
 
 ## SIGNALER UN BUG 
 
