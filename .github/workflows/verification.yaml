@@ -1,0 +1,32 @@
+name: Code Validation and Security Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code_validation_and_security_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          npm install html-validate@latest stylelint@latest snyk@latest
+
+
+      - name: Validate HTML
+        run: npx html-validate '**/*.html' --config .htmlvalidate.json
+
+      - name: Validate CSS
+        run: npx stylelint '**/*.css' --config .stylelintrc.json
+
+      - name: Scan JavaScript for security issues
+        run: npx snyk test --all-projects
+
