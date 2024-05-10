@@ -8,7 +8,6 @@ window.onload = function() {
     var descriptionElement = document.getElementById('description');
     var appNameElement = document.getElementById('appName');
     var userSessionElement = document.getElementById('userSession');
-    var userAddressElement = document.getElementById('userAddress');
     var licenceIdElement = document.getElementById('licenceId');
     var licenceIdDate = document.getElementById("dateLicence");
 
@@ -17,7 +16,6 @@ window.onload = function() {
     descriptionElement.textContent = getAppDescription();
     appNameElement.textContent = getAppName();
     userSessionElement.textContent = getUserSession();
-    userAddressElement.textContent = getUserAddress();
     licenceIdElement.textContent = licenceCode;
     licenceIdDate.textContent= licenceCodeDate;
 };
@@ -36,10 +34,6 @@ function getAppName() {
 
 function getUserSession() {
     return "Accès refusé"; // Remplacer par la fonction ou variable qui récupère le nom de l'utilisateur
-}
-
-function getUserAddress() {
-    return Session_ID; // Remplacer par la fonction ou variable qui génère l'adresse utilisateur -> Immpossibilité de récupérer l'identifiant session de l'utilisateur.
 }
 
 //function getLicenceId() {

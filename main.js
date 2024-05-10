@@ -45,7 +45,7 @@ const generateAndSaveSessionId = () => {
 
     if (!fs.existsSync(sessionFilePath)) {
         const sessionId = uuidv4();
-        fs.writeFileSync(sessionFilePath, `const SESSION_ID = '${sessionId}';\n`);
+        fs.writeFileSync(sessionFilePath, `const SESSION_ID = '${sessionId}';\nvar userAddress = document.getElementById('userAddress');\nuserAddress.textContent = userAddress(); \n \nfunction userAddress() {  \n  return SESSION_ID // Remplacer par la fonction ou variable qui génère l'adresse utilisateur   \n}`);
         console.log('Identifiant de session généré pour le premier démarrage :', sessionId);
     }
 };
