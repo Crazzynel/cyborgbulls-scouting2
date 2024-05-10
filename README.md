@@ -2,12 +2,12 @@
 # 9102 Scouting 2024
 
 > [!IMPORTANT]
-> Pour contribuer au projet, rendez vous à la secion [Contribuer au projet](https://github.com/Crazzynel/cyborgbulls-scouting2#Contribuer).
+> Pour contribuer au projet, rendez vous à la section [Contribuer au projet](https://github.com/Crazzynel/cyborgbulls-scouting2#Contribuer).
 
-> [!WARNING]  
-> **Des modifications majeures de la structure de ce projet sont en cours**
+> [!CAUTION]  
+> **D'importantes modifications ont été effectuées dans le code**
 > 
-> Le fonctionnement du code risque de changer de manière importante, merci de ne pas merge sur `main`
+> Si possible, nous vous invitons à bien vouloir mettre à jour le code de l'application sur votre branche et de soit mettre à jour vos ajouts ou bien de les laisser tels quels et de soumettre ensuite la pull request vers `main`
 
 
 L'application est destinée à l'équipe de robotique CyborgBulls pour le Scouting de la Saison 2023-24 de FIRST Robotics Competition.
