@@ -16,10 +16,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
       - name: Install dependencies
         run: |
           npm install html-validate@latest stylelint@latest snyk@latest
-
 
       - name: Validate HTML
         run: npx html-validate '**/*.html' --config .htmlvalidate.json
@@ -29,4 +33,3 @@ jobs:
 
       - name: Scan JavaScript for security issues
         run: npx snyk test --all-projects
-
