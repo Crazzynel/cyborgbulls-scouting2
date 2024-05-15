@@ -45,5 +45,36 @@
     <footer>
         <p>© 2024 CyborgBulls - Tous Droits Réservés.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const toggleButton = document.createElement('button');
+            toggleButton.innerText = 'Toggle Dark Mode';
+            toggleButton.style.position = 'fixed';
+            toggleButton.style.top = '10px';
+            toggleButton.style.right = '10px';
+            toggleButton.style.padding = '10px';
+            toggleButton.style.backgroundColor = '#333';
+            toggleButton.style.color = '#fff';
+            toggleButton.style.border = 'none';
+            toggleButton.style.cursor = 'pointer';
+            document.body.appendChild(toggleButton);
+    
+            toggleButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                document.querySelector('header').classList.toggle('dark-mode');
+                document.querySelector('footer').classList.toggle('dark-mode');
+                document.querySelectorAll('.info-box').forEach((element) => {
+                    element.classList.toggle('dark-mode');
+                });
+                document.querySelectorAll('button').forEach((element) => {
+                    element.classList.toggle('dark-mode');
+                });
+                document.querySelectorAll('input').forEach((element) => {
+                    element.classList.toggle('dark-mode');
+                });
+            });
+        });
+    </script>
+        
 </body>
 </html>
