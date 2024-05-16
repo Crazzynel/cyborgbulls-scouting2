@@ -21,7 +21,7 @@ window.onload = function() {
 };
 
 function getAppVersion() {
-    return "1.0.0 Bêta - Developer Mode"; // Remplacer par la fonction ou variable qui récupère la version de l'application
+    return "1.3.0 - Developer Mode / Version d'essai"; // Remplacer par la fonction ou variable qui récupère la version de l'application
 }
 
 function getAppDescription() {
