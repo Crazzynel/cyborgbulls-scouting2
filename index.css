@@ -115,7 +115,7 @@ body.dark-mode {
 }
 
 header.dark-mode, footer.dark-mode {
-    background-color: #0a0042;
+    background-color: #0a0527;
     color: #f0f0f0;
 }
 
@@ -130,11 +130,11 @@ button.dark-mode {
 }
 
 .button_scout_match.dark-mode {
-    background-color: #012e58;
+    background-color: #036bcc;
 }
 
 .button_scout_pit.dark-mode {
-    background-color: #610136;
+    background-color: #ff0000;
 }
 
 input.dark-mode {
@@ -142,3 +142,5 @@ input.dark-mode {
     color: #f0f0f0;
     border: 1px solid #555;
 }
+
+/* Le darkmode est prêt à être déployé à d'autres pages. */ 

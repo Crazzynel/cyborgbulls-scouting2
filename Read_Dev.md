@@ -31,7 +31,7 @@ Nous accueillons toutes les contributions pour améliorer CyborgBulls Scouting !
 
 ## Contacts
 
-Les principaux contacts pour le projet CyborgBulls Scouting sont l'équipe de développement de CyborgBulls et les contributeurs principaux.
+Les principaux contacts pour le projet CyborgBulls Scouting sont l'équipe de développement de CyborgBulls et les contributeurs principaux. Pour obtenir les informations relatives au projet, contactez [Crazzynel - Développeur principal de l'app](mailto:nakanosan@gmx.fr?subject=Contact%20pour%20mise%20a%20jour%20du%20code%20-%20CyborgBulls%20Scouting)
 
 ## Installation
 
