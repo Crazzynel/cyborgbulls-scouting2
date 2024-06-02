@@ -1,12 +1,10 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path'); // Assurez-vous d'importer le module path
 
 let mainWindow;
 let loadingWindow; // Déclaration de la fenêtre de chargement
-
-// Ce code est fourni sans licence. Ce qui exprime l'acces libre au code a tous les utilisateurs.
-// Nous commentons le code pour faciliter les comprehensions. 
 
 // Fonction pour créer la fenêtre de chargement
 const createLoadingWindow = () => {
@@ -18,7 +16,7 @@ const createLoadingWindow = () => {
         transparent: true,
         webPreferences: {
             nodeIntegration: true,
-            frame: false,
+            contextIsolation: false
         }
     });
 
@@ -57,7 +55,10 @@ const createMainWindow = () => {
         width: 800,
         height: 600,
         show: false,
-        icon: '9102.png'
+        icon: '9102.png',
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js') // Spécifiez le chemin vers preload.js
+        }
     });
 
     mainWindow.loadFile('index.html');
@@ -72,6 +73,8 @@ const createMainWindow = () => {
         mainWindow = null;
     });
 
+    const scouterName = store.get('scouterName', 'Aucun');
+
     const customMenu = Menu.buildFromTemplate([
         {
             label: 'Navigation',
@@ -80,23 +83,23 @@ const createMainWindow = () => {
                     label: 'Retour à l\'accueil',
                     click: () => {
                         mainWindow.loadFile('./index.html');
-                    } 
+                    }
                 },
                 { type: 'separator' },
                 {
                     label: 'Recharger la page',
                     role: 'reload'
-                }, 
+                },
             ]
         },
         {
             label: 'Application',
             submenu: [
-                { 
+                {
                     label: 'Réduire l\'application',
                     role: 'minimize'
                 },
-                { type: 'separator'},
+                { type: 'separator' },
                 {
                     label: 'Quitter',
                     role: 'quit'
@@ -107,7 +110,7 @@ const createMainWindow = () => {
                     role: 'togglefullscreen'
                 },
                 {
-                    label:'Developer Console',
+                    label: 'Developer Console',
                     role: 'toggleDevTools'
                 }
             ]
@@ -119,21 +122,21 @@ const createMainWindow = () => {
                     label: 'FRC TEAM: 9102',
                     role: ''
                 },
-                { type: 'separator'},
+                { type: 'separator' },
                 {
-                    label:  'Scout Name: Aucun',
+                    label: `Scout Name: ${scouterName}`,
                     role: ''
                 },
                 {
-                    label: 'Scout Zone: Inconnue' ,
+                    label: 'Scout Zone: Inconnue',
                     role: ''
                 },
-                { type: 'separator'},
+                { type: 'separator' },
                 {
-                    label:  'État de la licence: Valide',
-                    click () {
+                    label: 'État de la licence: Valide',
+                    click() {
                         mainWindow.loadFile('log.html')
-                        // Il faut faire en sorte que l'application reconnaisse un fichier log pour la connexion.... ou bien que ce soit rappellé aux membres avant le démarrage d'entrer les licences...
+                        // Il faut faire en sorte que l'application reconnaisse un fichier log pour la connexion.... ou bien que ce soit rappelé aux membres avant le démarrage d'entrer les licences...
                     }
                 },
             ]
@@ -143,9 +146,9 @@ const createMainWindow = () => {
             submenu: [
                 {
                     label: 'Accéder à la page des Contributeurs',
-                    click () {
+                    click() {
                         mainWindow.loadFile('./contributors/page.html')
-                    // Dans cette situation, ajout d'un console.log pour suivre le bon fonctionnement de la commande.
+                        // Dans cette situation, ajout d'un console.log pour suivre le bon fonctionnement de la commande.
                     }
                 }
             ]

@@ -2,14 +2,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #0a0042;
+    color: #f0f0f0;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    color: white;
+    background-color: #0a0527;
+    color: #f0f0f0;
     padding: 10px;
 }
 
@@ -35,8 +37,9 @@ main {
 }
 
 .info-box {
-    border: 1px solid #ddd;
+    border: 1px solid #444;
     padding: 10px;
+    background-color: #1c1c1c;
 }
 
 label {
@@ -48,12 +51,15 @@ input {
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
+    background-color: #333;
+    color: #f0f0f0;
+    border: 1px solid #555;
 }
 
 button {
     padding: 5px 10px;
-    background-color: #333;
-    color: white;
+    background-color: #2b2b2b;
+    color: #f0f0f0;
     border: none;
     cursor: pointer;
 }
@@ -64,11 +70,11 @@ button {
 }
 
 .button_scout_match {
-    background-color: #0066B3;
+    background-color: #036bcc;
 }
 
 .button_scout_pit {
-    background-color: #ED1C24;
+    background-color: #ff0000;
 }
 
 .scout-buttons button {
@@ -76,7 +82,7 @@ button {
 }
 
 footer {
-    background-color: #333;
+    background-color: #0a0527;
     color: white;
     text-align: center;
     padding: 10px;
@@ -107,40 +113,3 @@ img {
     width: 170px;
     height: auto;
 }
-
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: #0a0042;
-    color: #f0f0f0;
-}
-
-header.dark-mode, footer.dark-mode {
-    background-color: #0a0527;
-    color: #f0f0f0;
-}
-
-.info-box.dark-mode {
-    border-color: #444;
-    background-color: #1c1c1c;
-}
-
-button.dark-mode {
-    background-color: #2b2b2b;
-    color: #f0f0f0;
-}
-
-.button_scout_match.dark-mode {
-    background-color: #036bcc;
-}
-
-.button_scout_pit.dark-mode {
-    background-color: #ff0000;
-}
-
-input.dark-mode {
-    background-color: #333;
-    color: #f0f0f0;
-    border: 1px solid #555;
-}
-
-/* Le darkmode est prêt à être déployé à d'autres pages. */ 

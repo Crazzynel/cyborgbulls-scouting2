@@ -1,36 +1,38 @@
+// index.js
+
+// Fonction pour enregistrer le nom du scouteur
 function saveScouterName() {
     const scouterName = document.getElementById('scouterName').value;
-    console.log(scouterName)
-// Variable scoutername supposée enregistrer le nom du scouteur.
+    if (scouterName) {
+        window.electronStore.set('scouterName', scouterName);
+        alert('Nom du scouteur enregistré!');
+    } else {
+        alert('Veuillez entrer un nom.');
+    }
 }
 
+// Fonction pour pré-remplir le nom du scouteur
+function prefillScouterName() {
+    const savedName = window.electronStore.get('scouterName', '');
+    if (savedName) {
+        document.getElementById('scouterName').value = savedName;
+    }
+}
+
+// Fonctions de navigation
 function navigateToPitScouting() {
-    // Ajoute le code pour naviguer vers la page de scouting pit
     console.log('Navigating to Pit Scouting');
-    window.location.href="./execute_scout/pit/page.html"
-    
+    window.location.href = "./execute_scout/pit/page.html";
 }
 
 function navigateToMatchScouting() {
-    // Ajoute le code pour naviguer vers la page de scouting match
     console.log('Navigating to Match Scouting');
-    window.location.href="./execute_scout/match/test.html"
+    window.location.href = "./execute_scout/match/test.html";
 }
-
-// function navigatetoAdminPanel() {
-//         window.location.href="./admin_panel/page.html"        
-// }
 
 function redirectToAdminLog() {
-    window.location.href = './admin_panel/logger.html'
-    console.log("Redirection Effectuée à partir de la page d'accueil.")
+    window.location.href = './admin_panel/logger.html';
+    console.log("Redirection Effectuée à partir de la page d'accueil.");
 }
 
-/// CHAMP ADMIS POUR LES CONSOLE.LOG - LOGS MANUEL permettant de se retrouver dans les modes de developpement.
-console.error("Licence: Absente")
-
-/// FIN DE CHAMP pour Index.js
-
-
-
-// Team list is stocked on the folder named "teams"
+document.addEventListener('DOMContentLoaded', prefillScouterName);

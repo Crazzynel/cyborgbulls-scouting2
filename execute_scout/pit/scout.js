@@ -1,51 +1,81 @@
 // Les données de l'application
 const appData = {
-    teams: ['Team A', 'Team B', 'Team C'],
-    selectedTeam: 'Team A',
-    scouterComments: ''
+    teams: ['None', 'Team B', 'Team C'],
+    selectedTeam: 'None',
+    scouterName: localStorage.getItem('scouterName') || '',
+    questions: []
 };
 
 // Méthode pour générer le fichier CSV
 function generateCSV() {
     // Logique pour générer le fichier CSV à partir des données
-    console.log('Génération du fichier CSV...');
-}
-
-// Méthode pour enregistrer les commentaires du scouteur dans un fichier texte
-function saveComments() {
-    // Logique pour enregistrer les commentaires dans un fichier texte
-    console.log('Enregistrement des commentaires...');
+    console.log('Génération du fichier CSV...', appData);
 }
 
 // Fonction d'initialisation de l'application
 function initializeApp() {
-    // Sélection des éléments HTML
     const teamSelect = document.getElementById('team');
-    const commentTextarea = document.querySelector('.scouter-comments textarea');
-    const saveButton = document.querySelector('.save-button');
+    const scouterNameInput = document.getElementById('scouter-name');
     const csvButton = document.querySelector('.csv-button');
+    const selectedTeamDisplay = document.getElementById('selected-team-display');
+    const questionsContainer = document.getElementById('questions-container');
+
+    // Pré-remplir le nom du scouteur depuis localStorage
+    if (appData.scouterName) {
+        scouterNameInput.value = appData.scouterName;
+    }
 
     // Initialisation de la liste des équipes
     appData.teams.forEach(team => {
         const option = document.createElement('option');
         option.textContent = team;
+        option.value = team;
         teamSelect.appendChild(option);
     });
 
-    // Écouteurs d'événements pour les boutons
-    saveButton.addEventListener('click', saveComments);
-    csvButton.addEventListener('click', generateCSV);
+    selectedTeamDisplay.textContent = appData.selectedTeam;
+    teamSelect.value = appData.selectedTeam;
 
-    // Écouteur d'événement pour la sélection de l'équipe
     teamSelect.addEventListener('change', function() {
         appData.selectedTeam = this.value;
+        selectedTeamDisplay.textContent = this.value;
         console.log('Équipe sélectionnée :', appData.selectedTeam);
     });
 
-    // Écouteur d'événement pour les commentaires du scouteur
-    commentTextarea.addEventListener('input', function() {
-        appData.scouterComments = this.value;
-        console.log('Commentaires du scouteur :', appData.scouterComments);
+    scouterNameInput.addEventListener('input', function() {
+        appData.scouterName = this.value;
+        localStorage.setItem('scouterName', this.value); // Mettre à jour le nom du scouteur dans localStorage
+        console.log('Nom du scouteur :', appData.scouterName);
+    });
+
+    csvButton.addEventListener('click', generateCSV);
+
+    questions.forEach((q, index) => {
+        const questionItem = document.createElement('div');
+        questionItem.className = 'question-item';
+
+        const questionLabel = document.createElement('label');
+        questionLabel.textContent = q.question;
+        questionItem.appendChild(questionLabel);
+
+        q.options.forEach(option => {
+            const radioInput = document.createElement('input');
+            radioInput.type = 'radio';
+            radioInput.name = `question-${index}`;
+            radioInput.value = option;
+            radioInput.addEventListener('change', function() {
+                appData.questions[index] = this.value;
+                console.log(`Réponse à la question ${index + 1}: ${this.value}`);
+            });
+
+            const radioLabel = document.createElement('label');
+            radioLabel.textContent = option;
+            radioLabel.prepend(radioInput);
+
+            questionItem.appendChild(radioLabel);
+        });
+
+        questionsContainer.appendChild(questionItem);
     });
 }
 

@@ -4,39 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scouting Pit</title>
-    <!-- Lien vers votre fichier CSS personnalisé -->
     <link rel="stylesheet" href="start.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="dark-mode">
     <div id="app">
-        <!-- Interface utilisateur de la page de Scouting Pit -->
         <div class="container">
-            <!-- Section pour sélectionner une équipe -->
             <div class="team-selection">
                 <label for="team">Sélectionnez une équipe :</label>
-                <select id="team" onchange="selectedTeam = this.value">
-                    <option v-for="team in teams" :value="team">{{ selectedTeam }}</option>
+                <select id="team">
+                    <!-- Les options seront générées par JavaScript -->
                 </select>
             </div>
-            <!-- Section pour les détails de l'équipe sélectionnée -->
             <div class="team-details">
-                <h2>Détails de l'équipe {{ selectedTeam }}</h2>
-                <!-- Ajoutez ici les détails de l'équipe -->
+                <h2>Détails de l'équipe <span id="selected-team-display"></span></h2>
             </div>
-            <!-- Section pour les commentaires du scouteur -->
-            <div class="scouter-comments">
-                <h2>Commentaires du scouteur</h2>
-                <textarea id="scouter-comments" placeholder="Entrez vos commentaires ici"></textarea>
-                <button onclick="saveComments()">Enregistrer les commentaires</button>
+            <div class="scouter-info">
+                <h2>Nom du scouteur</h2>
+                <input type="text" id="scouter-name" placeholder="Entrez votre nom ici">
             </div>
-            <!-- Bouton pour générer le fichier CSV -->
+            <div class="scouter-questions">
+                <h2>Questions de scouteur</h2>
+                <div id="questions-container">
+                    <!-- Les questions seront générées par JavaScript -->
+                </div>
+            </div>
             <div class="generate-csv">
-                <button onclick="generateCSV()">Générer le fichier CSV</button>
+                <button class="csv-button"><i class="fas fa-file-csv"></i> Générer le fichier CSV</button>
             </div>
         </div>
     </div>
-
-    <!-- Lien vers votre fichier JavaScript personnalisé -->
+    <script src="questions.js"></script>
     <script src="scout.js"></script>
 </body>
 </html>
