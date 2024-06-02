@@ -1,34 +1,45 @@
-// Code for Progress Bar
-window.addEventListener("load", (event) => {
+// scout.js
+
+window.addEventListener("load", () => {
   const progressBar = document.querySelector(".progress");
+
   function updateProgress(value) {
     progressBar.style.width = value + "%";
   }
 
-  // Code for Team Color Selection
+  function calculateProgress() {
+    const totalClicks = autonomousActions
+      .map(({ clicks }) => clicks)
+      .reduce((a, b) => a + b, 0) + teleoperatedActions.map(({ clicks }) => clicks).reduce((a, b) => a + b, 0);
+    const totalPossibleClicks = autonomousActions.length + teleoperatedActions.length;
+    return (totalClicks / totalPossibleClicks) * 100;
+  }
+
   const color1 = document.getElementById("color1");
   const color2 = document.getElementById("color2");
+
   function getSelectedColor() {
     const color1 = document.getElementById("color1");
     const color2 = document.getElementById("color2");
     if (color1.checked) {
-        return color1.value;
+      return color1.value;
     } else if (color2.checked) {
-        return color2.value;
+      return color2.value;
     }
-}
+  }
 
-  // Code for Autonomous Section
   const projection = document.getElementById("projection");
   const zoneExit = document.getElementById("zoneExit");
   const hanging = document.getElementById("hanging");
   const ringRetrieval = document.getElementById("ringRetrieval");
+
   const autonomousActions = [
     { action: "Projection", clicks: 0, points: 5 },
     { action: "Zone exit", clicks: 0, points: 5 },
     { action: "Hanging", clicks: 0, points: 10 },
     { action: "Ring retrieval", clicks: 0, points: 10 },
   ];
+
   function recordAutonomous(action) {
     const color = getSelectedColor();
     const teamMembers = [
@@ -42,7 +53,7 @@ window.addEventListener("load", (event) => {
         item.clicks++;
         const summaryTableBody = document.querySelector(".summary-table tbody");
         const existingRow = Array.from(summaryTableBody.rows).find(
-          (row) => row.cells[0].textContent.trim() === action
+          (row) => row.cells[0].textContent.trim() === action && row.cells[3].textContent.trim() === "Autonome"
         );
         if (existingRow) {
           existingRow.cells[1].textContent = item.clicks.toString();
@@ -52,19 +63,15 @@ window.addEventListener("load", (event) => {
             <td>${action}</td>
             <td>${item.clicks}</td>
             <td>${item.points}</td>
+            <td>Autonome</td>
+            <td></td>
           `;
           summaryTableBody.appendChild(row);
         }
-        // Add the color and team members to the last row
-        const lastRow = summaryTableBody.lastElementChild;
-        if (color && teamMembers.length > 0) {
-          lastRow.insertAdjacentHTML(
-            "beforeend",
-            `<td>${color}, ${teamMembers.join(", ")}</td>`
-          );
-        }
       });
+    updateProgress(calculateProgress());
   }
+
   projection.addEventListener("click", () => {
     recordAutonomous("Projection");
   });
@@ -78,29 +85,53 @@ window.addEventListener("load", (event) => {
     recordAutonomous("Ring retrieval");
   });
 
-  // Code for TELEOPERATED Section
   const projectionSpeaker = document.getElementById("projectionSpeaker");
   const projectionAmpli = document.getElementById("projectionAmpli");
   const hangingTeleoperated = document.getElementById("hangingTeleoperated");
   const trap = document.getElementById("trap");
   const lancerTeleoperated = document.getElementById("lancerTeleoperated");
+
+  const teleoperatedActions = [
+    { action: "Projection (Speaker)", clicks: 0, points: 5 },
+    { action: "Projection (Ampli)", clicks: 0, points: 5 },
+    { action: "Hanging (Teleop)", clicks: 0, points: 10 },
+    { action: "Trap", clicks: 0, points: 5 },
+    { action: "Lancer J.H.", clicks: 0, points: 5 },
+  ];
+
   function recordTeleoperated(action) {
-    let humanPlayerNumber = ""; // Initialiser à une chaîne vide
-    if (action === "Lancer J.H.") { // Vérifier si l'action est "Lancer J.H."
-        humanPlayerNumber = document.getElementById("humanPlayerNumber").value; // Si oui, obtenir le numéro du joueur humain
+    let humanPlayerNumber = "";
+    if (action === "Lancer J.H.") {
+      humanPlayerNumber = document.getElementById("humanPlayerNumber").value;
     }
-    const teleopSummary = document.getElementById("teleopSummary");
-    const existingRow = Array.from(teleopSummary.rows).find(
-      (row) => row.cells[0].textContent.trim() === action
-    );
-    if (existingRow) {
-      existingRow.cells[1].textContent = parseInt(existingRow.cells[1].textContent) + 1;
-    } else {
-      const row = document.createElement("tr");
-      row.innerHTML = `<td>${action}</td><td>1</td><td>0</td><td>${humanPlayerNumber}</td>`;
-      teleopSummary.appendChild(row);
-    }
+    teleoperatedActions
+      .filter((item) => item.action === action)
+      .forEach((item) => {
+        item.clicks++;
+        const summaryTableBody = document.querySelector(".summary-table tbody");
+        const existingRow = Array.from(summaryTableBody.rows).find(
+          (row) => row.cells[0].textContent.trim() === action && row.cells[3].textContent.trim() === "Téléopéré"
+        );
+        if (existingRow) {
+          existingRow.cells[1].textContent = item.clicks.toString();
+          if (action === "Lancer J.H.") {
+            existingRow.cells[4].textContent = humanPlayerNumber;
+          }
+        } else {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${action}</td>
+            <td>${item.clicks}</td>
+            <td>${item.points}</td>
+            <td>Téléopéré</td>
+            <td>${humanPlayerNumber}</td>
+          `;
+          summaryTableBody.appendChild(row);
+        }
+      });
+    updateProgress(calculateProgress());
   }
+
   projectionSpeaker.addEventListener("click", () => {
     recordTeleoperated("Projection (Speaker)");
   });
@@ -114,51 +145,30 @@ window.addEventListener("load", (event) => {
     recordTeleoperated("Trap");
   });
   lancerTeleoperated.addEventListener("click", () => {
-  recordTeleoperated("Lancer J.H.");
-});
+    recordTeleoperated("Lancer J.H.");
+  });
 
+  const generateCSVButton = document.getElementById("generateCSV");
 
-// Code for Generation Section
-// Code pour générer le CSV
-const generateCSVButton = document.getElementById("generateCSV");
+  function generateCSV() {
+    const rows = Array.from(document.querySelectorAll("#teleopSummary tr")).map(row => {
+      const cells = Array.from(row.querySelectorAll("td"));
+      return cells.map(cell => cell.textContent.trim()).join(",");
+    });
+    const csvContent = [
+      "Action,Clics,Points,Période,Joueur Humain",
+      ...rows
+    ].join("\n");
+    
+    const teleoperatedActionsCSV = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
+    const teleoperatedActionsLink = document.createElement("a");
+    teleoperatedActionsLink.href = URL.createObjectURL(teleoperatedActionsCSV);
+    teleoperatedActionsLink.download = "teleoperated_actions.csv";
+    teleoperatedActionsLink.click();
+    alert("Votre fichier en .csv à bien été téléchargé !");
+  }
 
-function generateCSV() {
-  const teleoperatedActionsCSV = new Blob(
-    [
-      "Téléopérated Actions\n" +
-        "Action,Clicks,Points,Player Number\n" +
-        Array.from(document.querySelectorAll("#teleopSummary tr")).map(row => {
-          const cells = Array.from(row.querySelectorAll("td"));
-          return cells.map(cell => cell.textContent.trim()).join(",");
-        }).join("\n").replace(/,(\n|$)/g, "$1")
-    ],
-    { type: "text/csv;charset=utf-8" }
-  );
-  const teleoperatedActionsLink = document.createElement("a");
-  teleoperatedActionsLink.href = URL.createObjectURL(teleoperatedActionsCSV);
-  teleoperatedActionsLink.download = "teleoperated_actions.csv";
-  teleoperatedActionsLink.click();
-  alert("Votre fichier en .csv à bien été téléchargé ! ")
-}
+  generateCSVButton.addEventListener("click", generateCSV);
 
-
-generateCSVButton.addEventListener("click", () => {
-  generateCSV();
-});
-
-
-  // Initialize the progress bar
-  updateProgress(
-    100 *
-      (autonomousActions
-        .map(({ clicks }) => clicks)
-        .reduce((a, b) => a + b, 0) /
-        (autonomousActions
-          .map(({ clicks }) => clicks)
-          .reduce((a, b) => a + b, 0) +
-          teleoperatedActions
-            .map(({ clicks }) => clicks)
-            .reduce((a, b) => a + b, 0))
-      )
-    )
+  updateProgress(calculateProgress());
 });

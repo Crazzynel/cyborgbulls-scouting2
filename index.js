@@ -4,7 +4,7 @@
 function saveScouterName() {
     const scouterName = document.getElementById('scouterName').value;
     if (scouterName) {
-        window.electronStore.set('scouterName', scouterName);
+        localStorage.setItem('scouterName', scouterName);
         alert('Nom du scouteur enregistré!');
     } else {
         alert('Veuillez entrer un nom.');
@@ -13,7 +13,7 @@ function saveScouterName() {
 
 // Fonction pour pré-remplir le nom du scouteur
 function prefillScouterName() {
-    const savedName = window.electronStore.get('scouterName', '');
+    const savedName = localStorage.getItem('scouterName');
     if (savedName) {
         document.getElementById('scouterName').value = savedName;
     }

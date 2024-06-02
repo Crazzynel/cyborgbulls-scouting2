@@ -1,29 +1,100 @@
+/* start.css */
+@font-face {
+    font-family: 'Titillium Web';
+    src: url('../../fonts/TitilliumWeb-Light.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Titillium Web';
+    src: url('../../fonts/TitilliumWeb-Bold.ttf') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Titillium Web', Arial, sans-serif;
+    background-color: #0a0042;
+    color: #f0f0f0;
 }
 
-header {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-}
-
-main {
-    text-align: center;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-img {
-    max-width: 60%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+.section {
+    margin-bottom: 20px;
 }
 
-p {
-    font-size: 1.2em;
-    line-height: 1.6;
+h2 {
+    color: #ffde59;
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button .icon {
+    margin-right: 10px;
+}
+
+input[type="number"], input[type="radio"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin: 0 10px;
+}
+
+.color-label {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.summary-table th, .summary-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 20px;
+    background-color: #1e90ff;
+    width: 0;
+    transition: width 0.5s;
 }

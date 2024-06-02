@@ -1,14 +1,14 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
-const path = require('path'); // Assurez-vous d'importer le module path
+const path = require('path');
 
 let mainWindow;
-let loadingWindow; // Déclaration de la fenêtre de chargement
+let loadingWindow;
 
 // Fonction pour créer la fenêtre de chargement
 const createLoadingWindow = () => {
-    console.log('Creating loading window...'); // Message de création de la fenêtre de chargement
+    console.log('Creating loading window...');
     loadingWindow = new BrowserWindow({
         width: 400,
         height: 300,
@@ -23,19 +23,19 @@ const createLoadingWindow = () => {
     loadingWindow.loadFile('loading.html');
 
     loadingWindow.on('closed', () => {
-        console.log('Loading window is closed.'); // Message indiquant que la fenêtre de chargement est fermée
+        console.log('Loading window is closed.');
         loadingWindow = null;
         createMainWindow();
     });
 
     setTimeout(() => {
-        console.log('Closing loading window after timeout...'); // Message indiquant que la fenêtre de chargement se ferme après un délai
+        console.log('Closing loading window after timeout...');
         loadingWindow.close();
     }, 12000);
 };
 
 const generateAndSaveSessionId = () => {
-    const sessionDirectory = './admin_panel/ids'; // Spécifiez le chemin complet du répertoire
+    const sessionDirectory = './admin_panel/ids';
     if (!fs.existsSync(sessionDirectory)) {
         fs.mkdirSync(sessionDirectory, { recursive: true });
     }
@@ -43,7 +43,7 @@ const generateAndSaveSessionId = () => {
 
     if (!fs.existsSync(sessionFilePath)) {
         const sessionId = uuidv4();
-        fs.writeFileSync(sessionFilePath, `const SESSION_ID = '${sessionId}';\nvar userAddress = document.getElementById('userAddress');\nuserAddress.textContent = userAddress(); \n \nfunction userAddress() {  \n  return SESSION_ID // Remplacer par la fonction ou variable qui génère l'adresse utilisateur   \n}`);
+        fs.writeFileSync(sessionFilePath, `const SESSION_ID = '${sessionId}';\nvar userAddress = document.getElementById('userAddress');\nuserAddress.textContent = userAddress();\n\nfunction userAddress() {\n  return SESSION_ID;\n}`);
         console.log('Identifiant de session généré pour le premier démarrage :', sessionId);
     }
 };
@@ -57,7 +57,7 @@ const createMainWindow = () => {
         show: false,
         icon: '9102.png',
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js') // Spécifiez le chemin vers preload.js
+            preload: path.join(__dirname, 'preload.js') // Charger preload.js
         }
     });
 
@@ -73,8 +73,7 @@ const createMainWindow = () => {
         mainWindow = null;
     });
 
-    const scouterName = store.get('scouterName', 'Aucun');
-
+    // Note: Remove electron-store usage and update the menu dynamically
     const customMenu = Menu.buildFromTemplate([
         {
             label: 'Navigation',
@@ -82,7 +81,7 @@ const createMainWindow = () => {
                 {
                     label: 'Retour à l\'accueil',
                     click: () => {
-                        mainWindow.loadFile('./index.html');
+                        mainWindow.loadFile('index.html');
                     }
                 },
                 { type: 'separator' },
@@ -124,7 +123,7 @@ const createMainWindow = () => {
                 },
                 { type: 'separator' },
                 {
-                    label: `Scout Name: ${scouterName}`,
+                    label: 'Scout Name: Aucun', // Initial value, to be updated
                     role: ''
                 },
                 {
@@ -135,8 +134,7 @@ const createMainWindow = () => {
                 {
                     label: 'État de la licence: Valide',
                     click() {
-                        mainWindow.loadFile('log.html')
-                        // Il faut faire en sorte que l'application reconnaisse un fichier log pour la connexion.... ou bien que ce soit rappelé aux membres avant le démarrage d'entrer les licences...
+                        mainWindow.loadFile('log.html');
                     }
                 },
             ]
@@ -147,8 +145,7 @@ const createMainWindow = () => {
                 {
                     label: 'Accéder à la page des Contributeurs',
                     click() {
-                        mainWindow.loadFile('./contributors/page.html')
-                        // Dans cette situation, ajout d'un console.log pour suivre le bon fonctionnement de la commande.
+                        mainWindow.loadFile('contributors/page.html');
                     }
                 }
             ]
@@ -156,6 +153,16 @@ const createMainWindow = () => {
     ]);
 
     Menu.setApplicationMenu(customMenu);
+
+    // Update Scout Name dynamically
+    mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.executeJavaScript('localStorage.getItem("scouterName")').then(scouterName => {
+            if (scouterName) {
+                customMenu.items[2].submenu.items[2].label = `Scout Name: ${scouterName}`;
+                Menu.setApplicationMenu(customMenu);
+            }
+        });
+    });
 };
 
 // Appel de la fonction pour générer et enregistrer l'identifiant de session lors du premier démarrage
