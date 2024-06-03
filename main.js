@@ -1,7 +1,8 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
+const { autoUpdater } = require('electron-updater');
 
 let mainWindow;
 let loadingWindow;
@@ -162,6 +163,15 @@ const createMainWindow = () => {
                 Menu.setApplicationMenu(customMenu);
             }
         });
+        autoUpdater.checkForUpdatesAndNotify();  // Vérifiez les mises à jour ici
+    });
+
+    autoUpdater.on('update-available', () => {
+        mainWindow.webContents.send('update_available');
+    });
+
+    autoUpdater.on('update-downloaded', () => {
+        mainWindow.webContents.send('update_downloaded');
     });
 };
 
@@ -185,4 +195,8 @@ app.on('activate', () => {
         console.warn('Main window is null. Recreating main window.');
         createMainWindow();
     }
+});
+
+ipcMain.on('restart_app', () => {
+    autoUpdater.quitAndInstall();
 });

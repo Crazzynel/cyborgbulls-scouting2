@@ -39,9 +39,27 @@
         </div>
         <br><br>
         <button onclick="redirectToAdminLog()">Access to admin panel</button>
+        <div id="update-info"></div>
+
+  <script>
+    window.electron.ipcRenderer.on('update_available', () => {
+      const updateInfo = document.getElementById('update-info');
+      updateInfo.innerText = 'Une mise à jour est disponible. Téléchargement en cours...';
+    });
+
+    window.electron.ipcRenderer.on('update_downloaded', () => {
+      const updateInfo = document.getElementById('update-info');
+      updateInfo.innerHTML = 'Mise à jour téléchargée. <button id="restart-button">Redémarrer pour mettre à jour</button>';
+
+      document.getElementById('restart-button').addEventListener('click', () => {
+        window.electron.ipcRenderer.send('restart_app');
+      });
+    });
+  </script>
     </main>
     <footer class="dark-mode">
         <p>© 2024 CyborgBulls - Tous Droits Réservés.</p>
     </footer>
+    
 </body>
 </html>

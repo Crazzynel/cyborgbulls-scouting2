@@ -12,3 +12,7 @@ mac:
 linux:
   target: AppImage
   icon: 9102.png
+publish:
+  provider: github
+  owner: Crazzynel  # Remplacez par votre nom d'utilisateur GitHub
+  repo: cyborgbulls-scouting2  # Remplacez par le nom de votre dépôt
