@@ -74,7 +74,6 @@ const createMainWindow = () => {
         mainWindow = null;
     });
 
-    // Note: Remove electron-store usage and update the menu dynamically
     const customMenu = Menu.buildFromTemplate([
         {
             label: 'Navigation',
@@ -155,7 +154,6 @@ const createMainWindow = () => {
 
     Menu.setApplicationMenu(customMenu);
 
-    // Update Scout Name dynamically
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.webContents.executeJavaScript('localStorage.getItem("scouterName")').then(scouterName => {
             if (scouterName) {

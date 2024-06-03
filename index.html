@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - CyborgBulls Scouting 2024</title>
     <link rel="stylesheet" href="index.css">
+    <script src="preload.js"></script>
     <script defer src="index.js"></script>
 </head>
 <body class="dark-mode">
@@ -56,6 +57,33 @@
       });
     });
   </script>
+  <!-- Structure de la popup -->
+  <div class="popup" id="update-popup">
+    <h1>Mise à jour terminée !</h1>
+    <div class="popup-content">
+      <div class="details">
+        <label for="scouter-name">Nom:</label>
+        <div class="static-text" id="scouter-name">Antoine</div>
+        <button id="certification-button" disabled>
+          <img src="images/verifie.png" alt="Certif Icon"> Développeur de l'Application
+        </button>
+      </div>
+      <img id="profile-pic" src="contributors/assets/crazzynel_icon.jpeg" alt="Profile Picture">
+    </div>
+    <div class="patch-notes">
+      <label for="patch-notes">Notes de mise à jour :</label>
+      <div class="static-text" id="patch-notes">
+        - Nouvelles fonctionnalités<br>
+        - Amélioration de la performance<br>
+        - Correction de bugs
+      </div>
+    </div>
+    <div class="popup-buttons">
+      <button id="popup-ok-button">OK</button>
+      <button id="popup-ok-never-button">OK, ne plus voir jusqu'à la prochaine maj</button>
+    </div>
+  </div>
+    
     </main>
     <footer class="dark-mode">
         <p>© 2024 CyborgBulls - Tous Droits Réservés.</p>

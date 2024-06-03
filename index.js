@@ -36,3 +36,40 @@ function redirectToAdminLog() {
 }
 
 document.addEventListener('DOMContentLoaded', prefillScouterName);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const updatePopup = document.getElementById('update-popup');
+    const popupOkButton = document.getElementById('popup-ok-button');
+    const popupOkNeverButton = document.getElementById('popup-ok-never-button');
+  
+    // Afficher la popup de mise à jour
+    const showUpdatePopup = () => {
+      updatePopup.style.display = 'block';
+    };
+  
+    // Fermer la popup
+    const closeUpdatePopup = () => {
+      updatePopup.style.display = 'none';
+    };
+  
+    // Gérer l'événement 'update_available'
+    window.electron.ipcRenderer.on('update_available', () => {
+      showUpdatePopup();
+    });
+  
+    // Gérer le clic sur le bouton 'OK'
+    popupOkButton.addEventListener('click', closeUpdatePopup);
+  
+    // Gérer le clic sur le bouton 'OK, ne plus voir jusqu'à la prochaine maj'
+    popupOkNeverButton.addEventListener('click', () => {
+      localStorage.setItem('hideUpdatePopup', true);
+      closeUpdatePopup();
+    });
+  
+    // Afficher la popup si 'hideUpdatePopup' n'est pas défini
+    const hideUpdatePopup = localStorage.getItem('hideUpdatePopup');
+    if (!hideUpdatePopup) {
+      showUpdatePopup();
+    }
+  });
+  
