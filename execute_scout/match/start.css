@@ -1,4 +1,3 @@
-/* start.css */
 @font-face {
     font-family: 'Titillium Web';
     src: url('../../fonts/TitilliumWeb-Light.ttf') format('woff');
@@ -31,7 +30,7 @@ body {
     margin-bottom: 20px;
 }
 
-h2 {
+h1, h2 {
     color: #ffde59;
 }
 
@@ -57,11 +56,13 @@ button .icon {
     margin-right: 10px;
 }
 
-input[type="number"], input[type="radio"] {
+input[type="number"], input[type="text"], input[type="radio"], select {
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 input[type="radio"] {
@@ -97,4 +98,30 @@ input[type="radio"] {
     background-color: #1e90ff;
     width: 0;
     transition: width 0.5s;
+}
+
+/* Styles spécifiques pour la vue filtrée */
+#filter-options {
+    margin-bottom: 20px;
+}
+
+#match-list {
+    margin-bottom: 20px;
+}
+
+#match-list div {
+    padding: 10px;
+    background-color: #1e90ff;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#match-list div:hover {
+    background-color: #0056b3;
+}
+
+#match-details {
+    margin-top: 20px;
 }

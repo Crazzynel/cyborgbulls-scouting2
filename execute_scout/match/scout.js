@@ -1,4 +1,6 @@
-// scout.js
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
 
 window.addEventListener("load", () => {
   const progressBar = document.querySelector(".progress");
@@ -150,22 +152,37 @@ window.addEventListener("load", () => {
 
   const generateCSVButton = document.getElementById("generateCSV");
 
+  function getDocumentsPath() {
+    return path.join(os.homedir(), 'Documents', 'CyborgBulls Scouting Data');
+  }
+
+  function createDataFolder() {
+    const dataFolderPath = getDocumentsPath();
+    if (!fs.existsSync(dataFolderPath)) {
+      fs.mkdirSync(dataFolderPath, { recursive: true });
+    }
+  }
+
   function generateCSV() {
+    createDataFolder();
+    const matchName = document.getElementById('matchName').value;
+    const matchNumber = document.getElementById('matchNumber').value;
+    const matchType = document.getElementById('matchType').value;
     const rows = Array.from(document.querySelectorAll("#teleopSummary tr")).map(row => {
       const cells = Array.from(row.querySelectorAll("td"));
       return cells.map(cell => cell.textContent.trim()).join(",");
     });
     const csvContent = [
+      `Nom du match: ${matchName}`,
+      `Numéro du match: ${matchNumber}`,
+      `Type de match: ${matchType}`,
       "Action,Clics,Points,Période,Joueur Humain",
       ...rows
     ].join("\n");
     
-    const teleoperatedActionsCSV = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
-    const teleoperatedActionsLink = document.createElement("a");
-    teleoperatedActionsLink.href = URL.createObjectURL(teleoperatedActionsCSV);
-    teleoperatedActionsLink.download = "teleoperated_actions.csv";
-    teleoperatedActionsLink.click();
-    alert("Votre fichier en .csv à bien été téléchargé !");
+    const filePath = path.join(getDocumentsPath(), `scouting_data_${Date.now()}.csv`);
+    fs.writeFileSync(filePath, csvContent);
+    alert(`CSV sauvegardé dans ${filePath}`);
   }
 
   generateCSVButton.addEventListener("click", generateCSV);

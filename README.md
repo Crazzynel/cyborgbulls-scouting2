@@ -1,7 +1,7 @@
 
 # 9102 Scouting 2024
 
-> [!    ]
+> [!NOTE]
 > Pour contribuer au projet, rendez vous à la section [Contribuer au projet](https://github.com/Crazzynel/cyborgbulls-scouting2#Contribuer).
 <!--
 > [!CAUTION]  

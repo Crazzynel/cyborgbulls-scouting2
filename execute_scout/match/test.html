@@ -12,6 +12,17 @@
     <div class="progress-bar">  
         <div class="progress"></div>
     </div>
+    <div class="section match-info">
+        <input type="text" placeholder="Nom du match" id="matchName" />
+        <input type="number" placeholder="Numéro du match" id="matchNumber" />
+    </div>
+    <div class="section match-type-selection">
+        <label for="matchType">Type de match:</label>
+        <select id="matchType">
+            <option value="practice">Practice</option>
+            <option value="qualification">Qualification</option>
+        </select>
+    </div>
     <div class="section team-color-selection">
         <input type="radio" id="redColor" name="teamColor" value="red">
         <label for="redColor" class="color-label"><i class="fas fa-circle" style="color: red;"></i></label>
