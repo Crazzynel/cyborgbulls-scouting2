@@ -1,13 +1,10 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
-const fs = require('fs');
-const { v4: uuidv4 } = require('uuid');
-const path = require('path');
 const { autoUpdater } = require('electron-updater');
+const path = require('path');
 
 let mainWindow;
 let loadingWindow;
 
-// Fonction pour créer la fenêtre de chargement
 const createLoadingWindow = () => {
     console.log('Creating loading window...');
     loadingWindow = new BrowserWindow({
@@ -35,21 +32,6 @@ const createLoadingWindow = () => {
     }, 12000);
 };
 
-const generateAndSaveSessionId = () => {
-    const sessionDirectory = './admin_panel/ids';
-    if (!fs.existsSync(sessionDirectory)) {
-        fs.mkdirSync(sessionDirectory, { recursive: true });
-    }
-    const sessionFilePath = `${sessionDirectory}/session.js`;
-
-    if (!fs.existsSync(sessionFilePath)) {
-        const sessionId = uuidv4();
-        fs.writeFileSync(sessionFilePath, `const SESSION_ID = '${sessionId}';\nvar userAddress = document.getElementById('userAddress');\nuserAddress.textContent = userAddress();\n\nfunction userAddress() {\n  return SESSION_ID;\n}`);
-        console.log('Identifiant de session généré pour le premier démarrage :', sessionId);
-    }
-};
-
-// Fonction pour créer la fenêtre principale
 const createMainWindow = () => {
     console.log('Creating main window...');
     mainWindow = new BrowserWindow({
@@ -58,7 +40,8 @@ const createMainWindow = () => {
         show: false,
         icon: '9102.png',
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js') // Charger preload.js
+            nodeIntegration: true, // Permet l'utilisation des modules Node.js dans le fichier HTML
+            contextIsolation: false
         }
     });
 
@@ -161,7 +144,7 @@ const createMainWindow = () => {
                 Menu.setApplicationMenu(customMenu);
             }
         });
-        autoUpdater.checkForUpdatesAndNotify();  // Vérifiez les mises à jour ici
+        autoUpdater.checkForUpdatesAndNotify();
     });
 
     autoUpdater.on('update-available', () => {
@@ -172,9 +155,6 @@ const createMainWindow = () => {
         mainWindow.webContents.send('update_downloaded');
     });
 };
-
-// Appel de la fonction pour générer et enregistrer l'identifiant de session lors du premier démarrage
-generateAndSaveSessionId();
 
 app.on('ready', () => {
     console.log('Application is ready.');

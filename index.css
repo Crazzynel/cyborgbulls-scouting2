@@ -226,7 +226,7 @@ img {
     border: 1px solid #555;
     background-color: #333;
     color: #f0f0f0;
-    resize: none;
+    resize:horizontal;
 }
 
 .popup .popup-buttons {

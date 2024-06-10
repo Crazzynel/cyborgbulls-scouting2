@@ -13,25 +13,24 @@
         <div class="progress"></div>
     </div>
     <div class="section match-info">
-        <input type="text" placeholder="Nom du match" id="matchName" />
-        <input type="number" placeholder="Numéro du match" id="matchNumber" />
-    </div>
-    <div class="section match-type-selection">
-        <label for="matchType">Type de match:</label>
-        <select id="matchType">
-            <option value="practice">Practice</option>
-            <option value="qualification">Qualification</option>
-        </select>
+        <div class="match-type">
+            <label for="matchType">Type:</label>
+            <select id="matchType">
+                <option value="practice">Practice</option>
+                <option value="qualification">Qualification</option>
+            </select>
+            <input type="number" placeholder="Numéro du match" id="matchNumber" />
+        </div>
     </div>
     <div class="section team-color-selection">
+        <h2>ALLIANCE COLOR</h2>
         <input type="radio" id="redColor" name="teamColor" value="red">
-        <label for="redColor" class="color-label"><i class="fas fa-circle" style="color: red;"></i></label>
+        <label for="redColor" class="color-label"><i class="fas fa-circle" style="color: red; font-size: 16px;"></i></label>
         
         <input type="radio" id="blueColor" name="teamColor" value="blue">
-        <label for="blueColor" class="color-label"><i class="fas fa-circle" style="color: blue;"></i></label>
-        
-        <input type="hidden" value="red" id="color1" />
-        <input type="hidden" value="blue" id="color2" />
+        <label for="blueColor" class="color-label"><i class="fas fa-circle" style="color: blue; font-size: 16px;"></i></label>
+    </div>
+    <div class="section team-members">
         <input type="number" placeholder="Team number 1" id="member1" />
         <input type="number" placeholder="Team number 2" id="member2" />
         <input type="number" placeholder="Team number 3" id="member3" />

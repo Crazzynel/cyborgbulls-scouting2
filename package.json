@@ -1,6 +1,6 @@
 {
   "name": "cyborgbulls-scouting",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "App de scouting CyborgBulls",
   "main": "main.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "CyborgBulls",
     "Scouting"
   ],
-  "author": "Antoine Fabre",
+  "author": "Antoine Fabre-Chardounaud / CyborgBulls",
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "browserify": "^17.0.0",

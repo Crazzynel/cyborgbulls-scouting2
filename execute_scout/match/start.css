@@ -100,28 +100,21 @@ input[type="radio"] {
     transition: width 0.5s;
 }
 
-/* Styles spécifiques pour la vue filtrée */
-#filter-options {
-    margin-bottom: 20px;
+.match-info, .team-color-selection, .team-members {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#match-list {
-    margin-bottom: 20px;
+.match-info div, .team-color-selection div, .team-members div {
+    flex: 1;
+    margin-right: 10px;
 }
 
-#match-list div {
-    padding: 10px;
-    background-color: #1e90ff;
-    border-radius: 5px;
-    margin: 5px 0;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.match-info div:last-child, .team-color-selection div:last-child, .team-members div:last-child {
+    margin-right: 0;
 }
 
-#match-list div:hover {
-    background-color: #0056b3;
-}
-
-#match-details {
-    margin-top: 20px;
+.team-color-selection label {
+    font-size: 16px;
 }

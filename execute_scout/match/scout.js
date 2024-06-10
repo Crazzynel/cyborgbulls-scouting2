@@ -17,17 +17,15 @@ window.addEventListener("load", () => {
     return (totalClicks / totalPossibleClicks) * 100;
   }
 
-  const color1 = document.getElementById("color1");
-  const color2 = document.getElementById("color2");
-
   function getSelectedColor() {
-    const color1 = document.getElementById("color1");
-    const color2 = document.getElementById("color2");
-    if (color1.checked) {
-      return color1.value;
-    } else if (color2.checked) {
-      return color2.value;
+    const redColor = document.getElementById("redColor");
+    const blueColor = document.getElementById("blueColor");
+    if (redColor.checked) {
+      return "Rouge";
+    } else if (blueColor.checked) {
+      return "Bleu";
     }
+    return "None";
   }
 
   const projection = document.getElementById("projection");
@@ -165,22 +163,24 @@ window.addEventListener("load", () => {
 
   function generateCSV() {
     createDataFolder();
-    const matchName = document.getElementById('matchName').value;
     const matchNumber = document.getElementById('matchNumber').value;
     const matchType = document.getElementById('matchType').value;
+    const selectedColor = getSelectedColor();
+    const scouterName = localStorage.getItem("scouterName") || "Inconnu";
     const rows = Array.from(document.querySelectorAll("#teleopSummary tr")).map(row => {
       const cells = Array.from(row.querySelectorAll("td"));
       return cells.map(cell => cell.textContent.trim()).join(",");
     });
     const csvContent = [
-      `Nom du match: ${matchName}`,
-      `Numéro du match: ${matchNumber}`,
-      `Type de match: ${matchType}`,
-      "Action,Clics,Points,Période,Joueur Humain",
+      "CYBORGBULLS SCOUTING",
+      `${matchType.toUpperCase()} n° ${matchNumber}`,
+      `COULEUR DE L'ALLIANCE: ${selectedColor}`,
+      `SCOOT: ${scouterName}`,
+      "ACTION,CLICS,POINTS,PERIODE,JOUEUR HUMAIN",
       ...rows
     ].join("\n");
     
-    const filePath = path.join(getDocumentsPath(), `scouting_data_${Date.now()}.csv`);
+    const filePath = path.join(getDocumentsPath(), `${matchType}_${matchNumber}.csv`);
     fs.writeFileSync(filePath, csvContent);
     alert(`CSV sauvegardé dans ${filePath}`);
   }
