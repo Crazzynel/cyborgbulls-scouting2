@@ -16,3 +16,4 @@ publish:
   provider: github
   owner: Crazzynel  # Remplacez par votre nom d'utilisateur GitHub
   repo: cyborgbulls-scouting2  # Remplacez par le nom de votre dépôt
+  releaseType: draft
