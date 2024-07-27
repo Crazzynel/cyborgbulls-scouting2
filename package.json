@@ -1,6 +1,6 @@
 {
   "name": "cyborgbulls-scouting",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "App de scouting CyborgBulls",
   "main": "main.js",
   "scripts": {
