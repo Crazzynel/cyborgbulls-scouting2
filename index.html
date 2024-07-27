@@ -15,6 +15,8 @@
         </div>
         <div class="header-center">
             <h1>CyborgBulls - Scouting S24</h1>
+            <sub>Version de build: Version 1.4.2 - "Summer Build"</sub>:
+           <!-- <button onclick="Clear()">Clique ici pour clear localStorage</button> -->
         </div>
         <div class="header-right">
             <img src="images/cyborg logo.webp" alt="Logo CyborgBulls">
@@ -31,7 +33,7 @@
         <div class="scout-buttons">
             <button class="button_scout_pit dark-mode" onclick="navigateToPitScouting()">
                 <img class="scout_icon" src="images/tkt.png" alt="Pit Icon">
-                <span>SCOUT PIT (Unavailable for now)</span>
+                <span>SCOUT PIT</span>
             </button>
             <button class="button_scout_match dark-mode" onclick="navigateToMatchScouting()">
                 <img class="scout_icon" src="images/temps.png" alt="Match Icon">
@@ -39,7 +41,6 @@
             </button>
         </div>
         <br><br>
-        <button onclick="redirectToAdminLog()">Access to admin panel</button>
         <div id="update-info"></div>
 
   <script>
@@ -76,18 +77,24 @@
         - Mise à jour de la page de Scouting Match<br>
         - Génération du fichier CSV fonctionnel.<br>
         - Correction de bugs créant des difficultés au démarrage de l'app.
+        - Déploiement du mode scouting blanc
       </div>
     </div>
     <div class="popup-buttons">
       <button id="popup-ok-button">OK</button>
       <button id="popup-ok-never-button">OK, ne plus voir jusqu'à la prochaine maj</button>
+      <button id="popup-view-release" onclick="popupViewRelease()">Consulter la release sur le site officiel</button>
     </div>
   </div>
     
     </main>
     <footer class="dark-mode">
         <p>© 2024 CyborgBulls - Tous Droits Réservés.</p>
+        <p>Mode d'affichage: Classique</p>
     </footer>
     
+    <script>
+      console.info('Informations de version: \n Build: Officiel \n Identification de version: 1.4.1 - "Summer Build" \n Développeur: Fabre-Chardounaud Antoine \n Code: Compiled via .exe')
+    </script>
 </body>
 </html>

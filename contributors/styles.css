@@ -1,6 +1,20 @@
 /*Définition du background */
+@font-face{
+font-family: 'Titillium Web';
+src: url('../fonts/TitilliumWeb-Light.ttf') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Titillium Web';
+src: url('../fonts/TitilliumWeb-Bold.ttf') format('woff');
+font-weight: bold;
+font-style: normal;
+}
 body {
     background-color: rgba(0, 7, 102, 0.541); /* Bleu océan profond avec une opacité de 50% */
+    font-family: 'Titillium Web'
 }
 
 /* Style des catégories */
@@ -12,7 +26,7 @@ body {
 .category h2 {
     font-size: 24px;
     margin-bottom: 10px;
-    font-family: Arial, sans-serif; /* Utilisation d'une police de caractères */
+    font-family: 'Titillium Web'; /* Utilisation d'une police de caractères */
 }
 
 /* Style des cadres utilisateurs */
@@ -43,7 +57,7 @@ body {
 .user-card p {
     font-size: 16px;
     margin-bottom: 15px;
-    font-family: Arial, sans-serif; /* Utilisation d'une police de caractères */
+    font-family: 'Titillium Web'; /* Utilisation d'une police de caractères */
     text-align: center; /* Centrage du texte */
 }
 

@@ -71,5 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!hideUpdatePopup) {
       showUpdatePopup();
     }
+
   });
+    function popupViewRelease() {
+      window.location.href = "https://sites.google.com/view/cyborgbulls-scouting/releases"
+    };
+
+
+
+
   
