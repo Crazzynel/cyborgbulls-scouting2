@@ -1,0 +1,19 @@
+CYBORGBULLS SCOUTING
+QUALIFICATION n° 23
+COULEUR DE L'ALLIANCE: Bleu
+SCOOT: Inconnu
+ACTION,CLICS,POINTS,PERIODE,JOUEUR HUMAIN
+Zone exit,3,5,Autonome,
+Ring retrieval,1,10,Autonome,
+Projection (Ampli),5,5,Téléopéré,
+Projection (Speaker),6,5,Téléopéré,
+Hanging (Teleop),2,10,Téléopéré,
+Lancer J.H.,3,5,Téléopéré,9102
+
+CYBORGBULLS SCOUTING
+PRACTICE n° 
+COULEUR DE L'ALLIANCE: None
+SCOOT: Inconnu
+ACTION,CLICS,POINTS,PERIODE,JOUEUR HUMAIN
+Zone exit,1,5,Autonome,
+

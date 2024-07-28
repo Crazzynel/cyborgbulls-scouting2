@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path');
+const fs = require('fs');
 
 let mainWindow;
 let loadingWindow;
@@ -13,8 +14,8 @@ const createLoadingWindow = () => {
         frame: false,
         transparent: true,
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
+            preload: path.join(__dirname, 'preload.js'), // Ajout du preload
+            contextIsolation: true
         }
     });
 
@@ -27,7 +28,7 @@ const createLoadingWindow = () => {
     });
 
     setTimeout(() => {
-        console.log('Closing loading window after timeout...');
+        console.log('Closing loading window après timeout...');
         loadingWindow.close();
     }, 12000);
 };
@@ -40,8 +41,8 @@ const createMainWindow = () => {
         show: false,
         icon: '9102.png',
         webPreferences: {
-            nodeIntegration: true, // Permet l'utilisation des modules Node.js dans le fichier HTML
-            contextIsolation: false
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true
         }
     });
 
@@ -153,6 +154,17 @@ const createMainWindow = () => {
 
     autoUpdater.on('update-downloaded', () => {
         mainWindow.webContents.send('update_downloaded');
+    });
+
+    ipcMain.handle('read-log-file', async () => {
+        const logFilePath = path.join(__dirname, 'execute_scout', 'match', 'scouting_log.txt');
+        try {
+            const data = await fs.promises.readFile(logFilePath, 'utf-8');
+            return data;
+        } catch (error) {
+            console.error('Erreur lors de la lecture du fichier de log:', error);
+            throw error;
+        }
     });
 };
 

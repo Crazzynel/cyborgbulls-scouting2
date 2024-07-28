@@ -16,7 +16,6 @@
         <div class="header-center">
             <h1>CyborgBulls - Scouting S24</h1>
             <sub>Version de build: Version 1.4.2 - "Summer Build"</sub>:
-           <!-- <button onclick="Clear()">Clique ici pour clear localStorage</button> -->
         </div>
         <div class="header-right">
             <img src="images/cyborg logo.webp" alt="Logo CyborgBulls">
@@ -40,61 +39,70 @@
                 <span>SCOUT MATCH</span>
             </button>
         </div>
+        <div class="statistics-button">
+            <button class="button_view_statistics dark-mode" onclick="navigateToStatistics()">
+                <img class="scout_icon" src="images/stats.png" alt="Statistics Icon">
+                <span>VIEW STATISTICS</span>
+            </button>
+        </div>
         <br><br>
         <div id="update-info"></div>
 
-  <script>
-    window.electron.ipcRenderer.on('update_available', () => {
-      const updateInfo = document.getElementById('update-info');
-      updateInfo.innerText = 'Une mise à jour est disponible. Téléchargement en cours...';
-    });
+        <script>
+            window.electron.ipcRenderer.on('update_available', () => {
+                const updateInfo = document.getElementById('update-info');
+                updateInfo.innerText = 'Une mise à jour est disponible. Téléchargement en cours...';
+            });
 
-    window.electron.ipcRenderer.on('update_downloaded', () => {
-      const updateInfo = document.getElementById('update-info');
-      updateInfo.innerHTML = 'Mise à jour téléchargée. <button id="restart-button">Redémarrer pour mettre à jour</button>';
+            window.electron.ipcRenderer.on('update_downloaded', () => {
+                const updateInfo = document.getElementById('update-info');
+                updateInfo.innerHTML = 'Mise à jour téléchargée. <button id="restart-button">Redémarrer pour mettre à jour</button>';
 
-      document.getElementById('restart-button').addEventListener('click', () => {
-        window.electron.ipcRenderer.send('restart_app');
-      });
-    });
-  </script>
-  <!-- Structure de la popup -->
-  <div class="popup" id="update-popup">
-    <h1>Mise à jour terminée !</h1>
-    <div class="popup-content">
-      <div class="details">
-        <label for="scouter-name">Nom:</label>
-        <div class="static-text" id="scouter-name">Antoine</div>
-        <button id="certification-button" disabled style="cursor: default;;">
-          <img src="images/verifie.png" alt="Certif Icon"> Développeur de l'Application
-        </button>
-      </div>
-      <img id="profile-pic" src="contributors/assets/crazzynel_icon.jpeg" alt="Profile Picture">
-    </div>
-    <div class="patch-notes">
-      <label for="patch-notes">Notes de mise à jour :</label>
-      <div class="static-text" id="patch-notes">
-        - Mise à jour de la page de Scouting Match<br>
-        - Génération du fichier CSV fonctionnel.<br>
-        - Correction de bugs créant des difficultés au démarrage de l'app.
-        - Déploiement du mode scouting blanc
-      </div>
-    </div>
-    <div class="popup-buttons">
-      <button id="popup-ok-button">OK</button>
-      <button id="popup-ok-never-button">OK, ne plus voir jusqu'à la prochaine maj</button>
-      <button id="popup-view-release" onclick="popupViewRelease()">Consulter la release sur le site officiel</button>
-    </div>
-  </div>
-    
+                document.getElementById('restart-button').addEventListener('click', () => {
+                    window.electron.ipcRenderer.send('restart_app');
+                });
+            });
+        </script>
+        <!-- Structure de la popup -->
+        <div class="popup" id="update-popup">
+            <h1>Mise à jour terminée !</h1>
+            <div class="popup-content">
+                <div class="details">
+                    <label for="scouter-name">Nom:</label>
+                    <div class="static-text" id="scouter-name">Antoine</div>
+                    <button id="certification-button" disabled style="cursor: default;">
+                        <img src="images/verifie.png" alt="Certif Icon"> Développeur de l'Application
+                    </button>
+                </div>
+                <img id="profile-pic" src="contributors/assets/crazzynel_icon.jpeg" alt="Profile Picture">
+            </div>
+            <div class="patch-notes">
+                <label for="patch-notes">Notes de mise à jour :</label>
+                <div class="static-text" id="patch-notes">
+                    - Mise à jour de la page de Scouting Match<br>
+                    - Génération du fichier CSV fonctionnel.<br>
+                    - Correction de bugs créant des difficultés au démarrage de l'app.<br>
+                    - Déploiement du mode scouting blanc
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <button id="popup-ok-button">OK</button>
+                <button id="popup-ok-never-button">OK, ne plus voir jusqu'à la prochaine maj</button>
+                <button id="popup-view-release" onclick="popupViewRelease()">Consulter la release sur le site officiel</button>
+            </div>
+        </div>
     </main>
     <footer class="dark-mode">
         <p>© 2024 CyborgBulls - Tous Droits Réservés.</p>
         <p>Mode d'affichage: Classique</p>
     </footer>
-    
+
     <script>
-      console.info('Informations de version: \n Build: Officiel \n Identification de version: 1.4.1 - "Summer Build" \n Développeur: Fabre-Chardounaud Antoine \n Code: Compiled via .exe')
+        console.info('Informations de version: \n Build: Officiel \n Identification de version: 1.4.1 - "Summer Build" \n Développeur: Nanako \n Code: Compiled via .exe');
+
+        function navigateToStatistics() {
+            window.location.href = 'execute_scout/match/statistics.html';
+        }
     </script>
 </body>
 </html>

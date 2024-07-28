@@ -96,6 +96,16 @@ button {
     width: 45%;
 }
 
+.statistics-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button_view_statistics {
+    background-color: #32cd32; /* Couleur différente */
+}
+
 footer {
     background-color: #0a0527;
     color: white;
@@ -116,7 +126,7 @@ img {
     margin-bottom: 5px;
 }
 
-.button_scout_pit, .button_scout_match {
+.button_scout_pit, .button_scout_match, .button_view_statistics {
     min-width: 150px;
     display: flex;
     flex-direction: column;
@@ -128,14 +138,6 @@ img {
     width: 170px;
     height: auto;
 }
-
-
-
-
-
-
-
-
 
 /* Styles pour la popup */
 .popup {
@@ -227,7 +229,7 @@ img {
     border: 1px solid #555;
     background-color: #333;
     color: #f0f0f0;
-    resize:horizontal;
+    resize: horizontal;
 }
 
 .popup .popup-buttons {

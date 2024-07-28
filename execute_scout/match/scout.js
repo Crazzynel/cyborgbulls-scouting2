@@ -1,6 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-const os = require('os');
+// scout.js
 
 window.addEventListener("load", () => {
   const progressBar = document.querySelector(".progress");
@@ -183,6 +181,11 @@ window.addEventListener("load", () => {
     const filePath = path.join(getDocumentsPath(), `${matchType}_${matchNumber}.csv`);
     fs.writeFileSync(filePath, csvContent);
     alert(`CSV sauvegardé dans ${filePath}`);
+
+    // Enregistrer les données dans le fichier de log
+    const logFilePath = path.join(__dirname, 'scouting_log.txt');
+    const logContent = `${csvContent}\n\n`;
+    fs.appendFileSync(logFilePath, logContent, 'utf8');
   }
 
   generateCSVButton.addEventListener("click", generateCSV);
