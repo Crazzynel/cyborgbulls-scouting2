@@ -1,69 +1,57 @@
-@font-face {
-    font-family: 'Titillium Web';
-    src: url('../../fonts/TitilliumWeb-Light.ttf') format('woff');
-    font-weight: normal;
-    font-style: normal;
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
 }
 
-@font-face {
-    font-family: 'Titillium Web';
-    src: url('../../fonts/TitilliumWeb-Bold.ttf') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Titillium Web', Arial, sans-serif;
-    background-color: #0a0042; /* Bleu abysses */
-    color: #f0f0f0;
-}
-
-header {
+header.dark-mode {
+    background-color: #1e90ff;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+header.dark-mode img {
+    height: 50px;
+}
+
+header.dark-mode h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+main.dark-mode {
+    padding: 20px;
+}
+
+#filters-container {
+    margin-bottom: 20px;
+}
+
+#filters-container label,
+#filters-container select {
+    margin-right: 10px;
+}
+
+#comparison-container {
+    margin-top: 40px;
+}
+
+#comparison-container select {
+    margin-right: 10px;
+}
+
+footer.dark-mode {
+    text-align: center;
     padding: 20px;
     background-color: #1e90ff;
     color: #fff;
-}
-
-header .header-left, header .header-center, header .header-right {
-    display: flex;
-    align-items: center;
-}
-
-header .header-center {
-    flex: 1;
-    justify-content: center;
-}
-
-header img {
-    max-height: 50px;
-}
-
-.statistics-content {
-    padding: 20px;
-}
-
-#charts-container {
-    margin: 20px 0;
 }
 
 canvas {
-    background-color: #fff;
-    border-radius: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #1e90ff;
-    color: #fff;
-}
-
-.dark-mode {
-    background-color: #333;
-    color: #fff;
+    width: 100% !important;
+    max-width: 600px;
+    height: auto !important;
+    margin: 0 auto;
 }

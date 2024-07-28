@@ -17,19 +17,36 @@
             <h1>CyborgBulls - Scouting S24</h1>
         </div>
         <div class="header-right">
-            <img src="../../images/cyborg logo.webp" alt="Logo CyborgBulls">
+            <img class="cyborgbulls_logo" src="../../images/CyborgBulls Team Logo-07.png" alt="Logo CyborgBulls">
         </div>
     </header>
-    <main>
-        <div class="statistics-content">
-            <h2>Statistiques des matchs</h2>
-            <div id="charts-container">
-                <!-- Les graphiques seront insérés ici -->
-            </div>
+    <main class="dark-mode">
+        <h2>Statistiques</h2>
+        <div id="filters-container">
+            <label for="matchType">Type de Match :</label>
+            <select id="matchType">
+                <option value="all">Tous</option>
+                <option value="QUALIFICATION">Qualification</option>
+                <option value="PRACTICE">Practice</option>
+            </select>
+            <label for="allianceColor">Couleur de l'Alliance :</label>
+            <select id="allianceColor">
+                <option value="all">Tous</option>
+                <option value="Rouge">Rouge</option>
+                <option value="Bleue">Bleue</option>
+            </select>
+        </div>
+        <div id="charts-container"></div>
+        <div id="comparison-container">
+            <label for="teamSelect1">Équipe 1 :</label>
+            <select id="teamSelect1"></select>
+            <label for="teamSelect2">Équipe 2 :</label>
+            <select id="teamSelect2"></select>
+            <canvas id="comparisonChart"></canvas>
         </div>
     </main>
     <footer class="dark-mode">
-        <p>© 2024 CyborgBulls - Tous Droits Réservés.</p>
+        <p>&copy; 2024 CyborgBulls - Scouting</p>
     </footer>
 </body>
 </html>
