@@ -1,0 +1,6 @@
+/.github/**
+/build/
+admin_panel/ids/session.js
+
+# Ignorage de node_modules. Penser à faire un npm install
+node_modules/

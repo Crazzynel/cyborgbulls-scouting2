@@ -1,0 +1,2 @@
+defaultID: "CyborgBulls_Admin",
+defaultPassword: "uzerbzrzb8257,sdgnsfn83Y"

@@ -1,0 +1,64 @@
+/*Définition du background */
+body {
+    background-color: rgba(0, 7, 102, 0.541); /* Bleu océan profond avec une opacité de 50% */
+}
+
+/* Style des catégories */
+.category {
+    margin-bottom: 40px;
+    text-align: center; /* Centrage du texte */
+}
+
+.category h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif; /* Utilisation d'une police de caractères */
+}
+
+/* Style des cadres utilisateurs */
+.user-card {
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Transformation en cercle */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.596);
+    display: inline-block; /* Pour maintenir les cadres sur la même ligne */
+}
+
+.user-card img {
+    width: 100px;
+    border-radius: 50%; /* Transformation en cercle */
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif; /* Utilisation d'une police de caractères */
+}
+
+.user-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif; /* Utilisation d'une police de caractères */
+    text-align: center; /* Centrage du texte */
+}
+
+.user-card .btn {
+    display: block;
+    width: fit-content;
+    padding: 10px 20px;
+    margin: 0 auto;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user-card .btn:hover {
+    background-color: #0056b3;
+}

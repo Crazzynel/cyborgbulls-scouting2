@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="start.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<title>CYBORGBULLS 9102 - SCOUTING MATCH - DEFAULT MODE</title>
+</head>
+<body>
+<div class="container">
+    <div class="progress-bar">  
+        <div class="progress"></div>
+    </div>
+    <div class="section team-color-selection">
+        <input type="radio" id="redColor" name="teamColor" value="red">
+        <label for="redColor" class="color-label"><i class="fas fa-circle" style="color: red;"></i></label>
+
+        <input type="radio" id="blueColor" name="teamColor" value="blue">
+        <label for="blueColor" class="color-label"><i class="fas fa-circle" style="color: blue;"></i></label>
+        
+        <input type="hidden" value="red" id="color1" />
+        <input type="hidden" value="blue" id="color2" />
+        <input type="number" placeholder="Team number 1" id="member1" />
+        <input type="number" placeholder="Team number 2" id="member2" />
+        <input type="number" placeholder="Team number 3" id="member3" />
+    </div>
+    <div class="section autonomous-section">
+        <h2>Période Autonome</h2>
+        <button class="button" id="projection"><i class="fas fa-project-diagram icon"></i>Projection</button>
+        <button class="button" id="zoneExit"><i class="fas fa-door-open icon"></i>Zone exit</button>
+        <button class="button" id="hanging"><i class="fas fa-hand-rock icon"></i>Hanging</button>
+        <button class="button" id="ringRetrieval"><i class="fas fa-ring icon"></i>Ring retrieval</button>
+    </div>
+    <div class="section teleoperated-section">
+        <h2>Passage Téléopéré</h2>
+        <button class="button" id="projectionSpeaker"><i class="fas fa-bullhorn icon"></i>Projection (Speaker)</button>
+        <button class="button" id="projectionAmpli"><i class="fas fa-volume-up icon"></i>Projection (Ampli)</button>
+        <button class="button" id="hangingTeleoperated"><i class="fas fa-hand-rock icon"></i>Hanging</button>
+        <button class="button" id="lancerTeleoperated"><i class="fas fa-basketball-ball icon"></i>Lancer J.H.</button>
+        <button class="button" id="trap"><i class="fas fa-mouse-trap icon"></i>Trap</button>
+        <input type="number" placeholder="Human Player number" id="humanPlayerNumber" />
+    </div>
+    <div class="section end-of-match-section">
+        <h2>FIN DE MATCH</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Clics</th>
+                    <th>Points par clic</th>
+                    <th>Période</th>
+                    <th>Joueur Humain</th>
+                </tr>
+            </thead>
+            <tbody id="teleopSummary"></tbody>
+        </table>
+    </div>
+    <div class="section generation-section">
+        <h2>Générer le bilan du match</h2>
+        <button class="button" id="generateCSV"><i class="fas fa-file-csv icon"></i>Generate CSV</button>
+    </div>
+</div>
+
+<script src="scout.js"></script>
+</body>
+</html>

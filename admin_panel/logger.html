@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion au panneau admin - Cyborgbulls Scouting</title>
+    <style>
+        body {
+            background-color: #c5c5c5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 200px;
+        }
+
+        button {
+            background-color: #700202;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c7932a
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Connexion au panel admin</h2>
+        <input type="text" id="userID" placeholder="ID (Fourni par les développeurs)" required><br><br>
+        <input type="password" id="userPassword" placeholder="Mot de passe (8 caractères minimum)" required><br><br>
+        <button onclick="connectionAdminPanel()">Se connecter</button>
+    </div>
+
+    <script src="ids/connect.js"></script>
+</body>
+</html>
