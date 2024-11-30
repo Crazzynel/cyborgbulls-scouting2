@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
 
   function recordAction(actions, period, actionName) {
     const teamNumber = getSelectedTeamNumber();
-    const isHuman = isHumanPlayer() ? "OUI" : "NON";
+    const isHuman = actionName === "Lancer J.H." ? isHumanPlayer() ? "OUI" : "NON" : "N/A"; // Vérifiez si c'est "Lancer J.H."
 
     actions
       .filter(item => item.action === actionName)
