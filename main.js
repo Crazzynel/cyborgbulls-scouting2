@@ -14,6 +14,7 @@ const createLoadingWindow = () => {
         height: 300,
         frame: false,
         transparent: true,
+        icon: '9102.png',
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
