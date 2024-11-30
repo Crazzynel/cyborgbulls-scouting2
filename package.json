@@ -1,7 +1,7 @@
 {
   "name": "cyborgbulls-scouting",
-  "version": "1.4.0",
-  "description": "App de scouting CyborgBulls",
+  "version": "1.5.0",
+  "description": "App de scouting CyborgBulls - VERSION STABLE 1.5.0",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
