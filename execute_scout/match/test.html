@@ -10,21 +10,30 @@
 </head>
 <body>
 <div class="container">
+    <!-- Barre de progression -->
     <div class="progress-bar">  
         <div class="progress"></div>
     </div>
-    <div class="section team-color-selection">
-        <input type="radio" id="redColor" name="teamColor" value="red">
-        <label for="redColor" class="color-label"><i class="fas fa-circle" style="color: red;"></i></label>
 
-        <input type="radio" id="blueColor" name="teamColor" value="blue">
-        <label for="blueColor" class="color-label"><i class="fas fa-circle" style="color: blue;"></i></label>
-        
-        <input type="hidden" value="red" id="color1" />
-        <input type="hidden" value="blue" id="color2" />
-        <label for="teamNumber">Team number</label>
-        <input type="number" id="teamNumber" required />
+    <!-- Section sélection de l'équipe -->
+    <div class="section team-color-selection">
+        <h2>Configuration des données de l'équipe</h2>
+        <div class="color-selection">
+            <input type="radio" id="redColor" name="teamColor" value="red">
+            <label for="redColor" class="color-label"><i class="fas fa-circle" style="color: red;"></i> Rouge</label>
+
+            <input type="radio" id="blueColor" name="teamColor" value="blue">
+            <label for="blueColor" class="color-label"><i class="fas fa-circle" style="color: blue;"></i> Bleu</label>
+        </div>
+        <label for="teamNumber">Numéro d'équipe :</label>
+        <input type="number" id="teamNumber" placeholder="Entrez le numéro" required />
+        <div>
+            <label for="humanPlayerCheckbox">Joueur Humain :</label>
+            <input type="checkbox" id="humanPlayerCheckbox" />
+        </div>
     </div>
+
+    <!-- Section période autonome -->
     <div class="section autonomous-section">
         <h2>Période Autonome</h2>
         <button class="button" id="projection"><i class="fas fa-project-diagram icon"></i>Projection</button>
@@ -32,21 +41,20 @@
         <button class="button" id="hanging"><i class="fas fa-hand-rock icon"></i>Hanging</button>
         <button class="button" id="ringRetrieval"><i class="fas fa-ring icon"></i>Ring retrieval</button>
     </div>
+
+    <!-- Section période téléopérée -->
     <div class="section teleoperated-section">
-        <h2>Passage Téléopéré</h2>
+        <h2>Période Téléopérée</h2>
         <button class="button" id="projectionSpeaker"><i class="fas fa-bullhorn icon"></i>Projection (Speaker)</button>
         <button class="button" id="projectionAmpli"><i class="fas fa-volume-up icon"></i>Projection (Ampli)</button>
         <button class="button" id="hangingTeleoperated"><i class="fas fa-hand-rock icon"></i>Hanging</button>
-        <button class="button" id="lancerTeleoperated"><i class="fas fa-basketball-ball icon"></i>Lancer J.H.</button>
+        <button class="button" id="lancerTeleoperated" disabled><i class="fas fa-basketball-ball icon"></i>Lancer J.H.</button>
         <button class="button" id="trap"><i class="fas fa-mouse-trap icon"></i>Trap</button>
-    
-        <!-- Case à cocher pour indiquer si l'action est réalisée par un joueur humain -->
-        <label for="humanPlayerCheckbox">Joueur Humain</label>
-        <input type="checkbox" id="humanPlayerCheckbox" />
     </div>
-    
+
+    <!-- Section fin de match -->
     <div class="section end-of-match-section">
-        <h2>FIN DE MATCH</h2>
+        <h2>Feuille de Match - Auto-Update</h2>
         <table class="summary-table">
             <thead>
                 <tr>
@@ -57,11 +65,15 @@
                     <th>Joueur Humain</th>
                 </tr>
             </thead>
-            <tbody id="teleopSummary"></tbody>
+            <tbody>
+                <!-- Les lignes seront ajoutées dynamiquement par le JS -->
+            </tbody>
         </table>
     </div>
+
+    <!-- Section génération CSV -->
     <div class="section generation-section">
-        <h2>Générer le bilan du match</h2>
+        <h2>Générer le Bilan du Match</h2>
         <button class="button" id="generateCSV"><i class="fas fa-file-csv icon"></i>Generate CSV</button>
     </div>
 </div>
