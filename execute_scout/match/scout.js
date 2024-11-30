@@ -165,7 +165,7 @@ window.addEventListener("load", () => {
     teleoperatedActionsLink.href = URL.createObjectURL(teleoperatedActionsCSV);
     teleoperatedActionsLink.download = "teleoperated_actions.csv";
     teleoperatedActionsLink.click();
-    alert("Votre fichier en .csv à bien été téléchargé !");
+    alert("Votre fichier en .csv à bien été créé !");
   }
 
   generateCSVButton.addEventListener("click", generateCSV);
