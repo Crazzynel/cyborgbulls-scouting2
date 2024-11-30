@@ -1,5 +1,3 @@
-// scout.js
-
 window.addEventListener("load", () => {
   const progressBar = document.querySelector(".progress");
 
@@ -15,19 +13,38 @@ window.addEventListener("load", () => {
     return (totalClicks / totalPossibleClicks) * 100;
   }
 
-  const color1 = document.getElementById("color1");
-  const color2 = document.getElementById("color2");
+  // Récupère le numéro de l'équipe à suivre
+  const teamNumberInput = document.getElementById("teamNumber");
 
-  function getSelectedColor() {
-    const color1 = document.getElementById("color1");
-    const color2 = document.getElementById("color2");
-    if (color1.checked) {
-      return color1.value;
-    } else if (color2.checked) {
-      return color2.value;
+  function getSelectedTeamNumber() {
+    return teamNumberInput.value;
+  }
+
+  // Vérifie si la case "Joueur Humain" est cochée
+  const humanPlayerCheckbox = document.getElementById("humanPlayerCheckbox");
+
+  function isHumanPlayer() {
+    return humanPlayerCheckbox.checked;
+  }
+
+  // Empêche l'utilisation du bouton "Lancer Joueur Humain" si la case n'est pas cochée
+  const lancerTeleoperatedButton = document.getElementById("lancerTeleoperated");
+
+  function enableLancerButton() {
+    if (isHumanPlayer()) {
+      lancerTeleoperatedButton.disabled = false; // Active le bouton si la case est cochée
+    } else {
+      lancerTeleoperatedButton.disabled = true; // Désactive le bouton si la case est décochée
     }
   }
 
+  // Initialiser l'état du bouton au chargement de la page
+  enableLancerButton();
+
+  // Mettre à jour l'état du bouton en fonction du changement de la case
+  humanPlayerCheckbox.addEventListener('change', enableLancerButton);
+
+  // Actions pour la période autonome
   const projection = document.getElementById("projection");
   const zoneExit = document.getElementById("zoneExit");
   const hanging = document.getElementById("hanging");
@@ -41,12 +58,7 @@ window.addEventListener("load", () => {
   ];
 
   function recordAutonomous(action) {
-    const color = getSelectedColor();
-    const teamMembers = [
-      document.getElementById("member1").value,
-      document.getElementById("member2").value,
-      document.getElementById("member3").value,
-    ].filter((value) => value !== "");
+    const teamNumber = getSelectedTeamNumber();
     autonomousActions
       .filter((item) => item.action === action)
       .forEach((item) => {
@@ -64,7 +76,7 @@ window.addEventListener("load", () => {
             <td>${item.clicks}</td>
             <td>${item.points}</td>
             <td>Autonome</td>
-            <td></td>
+            <td>Equipe ${teamNumber}</td>
           `;
           summaryTableBody.appendChild(row);
         }
@@ -73,37 +85,44 @@ window.addEventListener("load", () => {
   }
 
   projection.addEventListener("click", () => {
-    recordAutonomous("Projection");
+    if (isHumanPlayer()) {
+      recordAutonomous("Projection");
+    }
   });
   zoneExit.addEventListener("click", () => {
-    recordAutonomous("Zone exit");
+    if (isHumanPlayer()) {
+      recordAutonomous("Zone exit");
+    }
   });
   hanging.addEventListener("click", () => {
-    recordAutonomous("Hanging");
+    if (isHumanPlayer()) {
+      recordAutonomous("Hanging");
+    }
   });
   ringRetrieval.addEventListener("click", () => {
-    recordAutonomous("Ring retrieval");
+    if (isHumanPlayer()) {
+      recordAutonomous("Ring retrieval");
+    }
   });
 
+  // Actions pour la période téléopérée
   const projectionSpeaker = document.getElementById("projectionSpeaker");
   const projectionAmpli = document.getElementById("projectionAmpli");
   const hangingTeleoperated = document.getElementById("hangingTeleoperated");
   const trap = document.getElementById("trap");
-  const lancerTeleoperated = document.getElementById("lancerTeleoperated");
 
   const teleoperatedActions = [
     { action: "Projection (Speaker)", clicks: 0, points: 5 },
     { action: "Projection (Ampli)", clicks: 0, points: 5 },
     { action: "Hanging (Teleop)", clicks: 0, points: 10 },
     { action: "Trap", clicks: 0, points: 5 },
-    { action: "Lancer J.H.", clicks: 0, points: 5 },
   ];
 
   function recordTeleoperated(action) {
-    let humanPlayerNumber = "";
-    if (action === "Lancer J.H.") {
-      humanPlayerNumber = document.getElementById("humanPlayerNumber").value;
-    }
+    const teamNumber = getSelectedTeamNumber();
+    const isHuman = isHumanPlayer(); // Vérifie si un joueur humain est impliqué
+    let humanPlayerNumber = isHuman ? "OUI" : "NON"; // Si joueur humain, affichage "OUI", sinon "NON"
+
     teleoperatedActions
       .filter((item) => item.action === action)
       .forEach((item) => {
@@ -114,9 +133,7 @@ window.addEventListener("load", () => {
         );
         if (existingRow) {
           existingRow.cells[1].textContent = item.clicks.toString();
-          if (action === "Lancer J.H.") {
-            existingRow.cells[4].textContent = humanPlayerNumber;
-          }
+          existingRow.cells[4].textContent = humanPlayerNumber; // Mise à jour de la colonne "Joueur Humain"
         } else {
           const row = document.createElement("tr");
           row.innerHTML = `
@@ -133,19 +150,31 @@ window.addEventListener("load", () => {
   }
 
   projectionSpeaker.addEventListener("click", () => {
-    recordTeleoperated("Projection (Speaker)");
+    if (isHumanPlayer()) {
+      recordTeleoperated("Projection (Speaker)");
+    }
   });
   projectionAmpli.addEventListener("click", () => {
-    recordTeleoperated("Projection (Ampli)");
+    if (isHumanPlayer()) {
+      recordTeleoperated("Projection (Ampli)");
+    }
   });
   hangingTeleoperated.addEventListener("click", () => {
-    recordTeleoperated("Hanging (Teleop)");
+    if (isHumanPlayer()) {
+      recordTeleoperated("Hanging (Teleop)");
+    }
   });
   trap.addEventListener("click", () => {
-    recordTeleoperated("Trap");
+    if (isHumanPlayer()) {
+      recordTeleoperated("Trap");
+    }
   });
-  lancerTeleoperated.addEventListener("click", () => {
-    recordTeleoperated("Lancer J.H.");
+
+  // Activation du bouton "Lancer Joueur Humain"
+  lancerTeleoperatedButton.addEventListener("click", () => {
+    if (isHumanPlayer()) {
+      recordTeleoperated("Lancer J.H.");
+    }
   });
 
   const generateCSVButton = document.getElementById("generateCSV");
@@ -165,10 +194,13 @@ window.addEventListener("load", () => {
     teleoperatedActionsLink.href = URL.createObjectURL(teleoperatedActionsCSV);
     teleoperatedActionsLink.download = "teleoperated_actions.csv";
     teleoperatedActionsLink.click();
-    alert("Votre fichier en .csv à bien été créé !");
+    alert("Votre fichier en .csv a bien été créé !");
   }
 
   generateCSVButton.addEventListener("click", generateCSV);
+
+  // Initialiser l'état du bouton "Lancer Joueur Humain"
+  enableLancerButton();
 
   updateProgress(calculateProgress());
 });

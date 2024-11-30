@@ -100,6 +100,17 @@ button {
     width: 45%;
 }
 
+.ia-button {
+    display: flex;
+    justify-content: space-around;
+}
+.ia-button button {
+    width: 45%;
+}
+.button_ia {
+    background-color: #8203cc;
+}
+
 footer {
     background-color: #0a0527;
     color: white;
@@ -120,7 +131,7 @@ img {
     margin-bottom: 5px;
 }
 
-.button_scout_pit, .button_scout_match {
+.button_scout_pit, .button_scout_match, .button_ia {
     min-width: 150px;
     display: flex;
     flex-direction: column;
