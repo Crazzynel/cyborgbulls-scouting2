@@ -1,0 +1,11 @@
+Je pense qu'il faut faire les trucs suivants: 
+
+- Récupération des données de la saisie du Scouting Pit pour définir une première stratégie
+- Mise à jour des données du scouting MATCH pour impacter de 60% la stratégie de game
+
+IA: 
+- Définition d'une stratégie de game basée sur les données du scouting pit et match.
+- Mise à jour de la stratégie de jeu en fonction des données du scouting match.
+- Suggestion des équipes en fonction de critères (s'appuyer sur des sortes de listes et de filtres)
+- Insérer une synchro serveur qui permettrait de faire via une application, via le "admin_panel", une statistique par équipe. 
+- Permettre de développer un machine learning qui se baserait sur les caractéristiques du cahier de jeu, traduit par ChatGPT ou autre chose qui permettrait de sélectionner les meilleurs critères.
