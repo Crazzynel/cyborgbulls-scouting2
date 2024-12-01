@@ -35,4 +35,9 @@ function redirectToAdminLog() {
     console.log("Redirection Effectuée à partir de la page d'accueil.");
 }
 
+function redirectToStatsAndAIFunctions() {
+    console.log("Commande non utilisable pour le moment --> Redirection demandée vers le panel Stats and AI");
+    alert("Cette page n'est pas encore accessible. Elle le sera dans une prochaine version.")
+}
+
 document.addEventListener('DOMContentLoaded', prefillScouterName);
