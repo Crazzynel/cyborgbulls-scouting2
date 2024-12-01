@@ -5,7 +5,7 @@
 > [!    ]
 > Pour contribuer au projet, rendez vous à la section [Contribuer au projet](https://github.com/Crazzynel/cyborgbulls-scouting2#Contribuer).
 <br>
-> Pour Consulter les Devlogs par Commit: [Cliquez Ici](./DEV_LOG.md)
+> Pour Consulter les Devlogs par Commit: [Cliquez Ici](https://github.com/Crazzynel/cyborgbulls-scouting2/blob/main/DEV_LOG.md)
 <br>
 <br>
 > [!CAUTION]  
