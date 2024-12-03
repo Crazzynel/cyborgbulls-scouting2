@@ -5,10 +5,10 @@ directories:
   output: build
 win:
   target: nsis
-  icon: 9102.png
+  icon: 9102_256x256.png
 mac:
   target: dmg
-  icon: 9102.png
+  icon: 9102_256x256.png
 linux:
   target: AppImage
-  icon: 9102.png
+  icon: 9102_256x256.png
