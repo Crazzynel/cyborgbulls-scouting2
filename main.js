@@ -119,8 +119,11 @@ const createMainWindow = () => {
             label: 'Informations',
             submenu: [
                 {
-                    label: 'FRC TEAM: 9102',
-                    role: ''
+                    label: 'Informations sur la Licence',
+                    click() {
+                        mainWindow.loadFile('./licenses/main.html')
+                        console.log("Redirection vers la page des licenses.")
+                    }
                 },
                 { type: 'separator' },
                 {
