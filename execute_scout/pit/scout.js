@@ -105,7 +105,7 @@ function generateCSV() {
             console.error('Erreur lors de l\'écriture du fichier:', err);
             return;
         }
-        alert("Fichier CSV enregistré à l'emplacement:", filePath)
+        alert("Fichier CSV enregistré dans vos documents dans le dossier CyborgBulls-SCOUTING25")
     });
     });
 }
