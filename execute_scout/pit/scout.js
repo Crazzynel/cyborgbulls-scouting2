@@ -52,34 +52,21 @@ const appData = {
 // Méthode pour générer le fichier CSV
 function generateCSV() {
     const csvRows = [];
-    
+
     // Ajouter l'en-tête
     csvRows.push(['Team Number', 'Team Name', 'Scouter Name', 'Questions and Answers']);
 
-    // Afficher l'ID de l'équipe sélectionnée pour diagnostic
     console.log('Team selected:', appData.selectedTeam);
-    
-    // Filtrer les équipes pour ne pas inclure la sélectionnée
+
+    // Filtrer et inclure uniquement l'équipe sélectionnée
     appData.teams.forEach(team => {
         console.log('Checking team:', team.id, team.name);
-        
-        // Vérifier si l'ID correspond à celui de l'équipe sélectionnée
         if (team.id == appData.selectedTeam) {
-            // Si c'est l'équipe sélectionnée, inclure les données de questions
             const row = [
                 team.id, // Numéro de l'équipe
                 team.name, // Nom de l'équipe
                 appData.scouterName || 'Non défini', // Nom du scouteur
                 JSON.stringify(appData.questions) // Liste des réponses aux questions
-            ];
-            csvRows.push(row);
-        } else {
-            // Si ce n'est pas l'équipe sélectionnée, afficher "N/A"
-            const row = [
-                team.id, // Numéro de l'équipe
-                team.name, // Nom de l'équipe
-                'N/A', // Pas de données pour l'équipe non sélectionnée
-                'N/A' // Pas de réponses aux questions
             ];
             csvRows.push(row);
         }
@@ -88,27 +75,36 @@ function generateCSV() {
     // Convertir le tableau en texte CSV
     const csvContent = csvRows.map(row => row.join(',')).join('\n');
 
-    // définir le chemin du dossier et du fichier
+    // Définir le dossier et le fichier
     const dirPath = path.join(require('os').homedir(), 'Documents', 'CyborgBulls-SCOUTING25');
-    const filePath = path.join(dirPath, 'scouting-data.csv');
+    let baseFileName = `pit_scout_${appData.selectedTeam}`;
+    let filePath = path.join(dirPath, `${baseFileName}.csv`);
+    let suffix = 1;
 
-    // On créer le dossier si il n'existe pas
-    fs.mkdir(dirPath, {recursive : true}, (err) => {
+    // Créer le dossier s'il n'existe pas
+    fs.mkdir(dirPath, { recursive: true }, (err) => {
         if (err) {
-            console.error('Erreur lors de la création du dossier:', err)
+            console.error('Erreur lors de la création du dossier:', err);
             return;
         }
-    
-    // Ecrire le fichier csv
-    fs.writeFile(filePath, csvContent, (err) => {
-        if (err) {
-            console.error('Erreur lors de l\'écriture du fichier:', err);
-            return;
+
+        // Gérer les doublons
+        while (fs.existsSync(filePath)) {
+            filePath = path.join(dirPath, `${baseFileName}-${suffix}.csv`);
+            suffix++;
         }
-        alert("Fichier CSV enregistré dans vos documents dans le dossier CyborgBulls-SCOUTING25")
-    });
+
+        // Écrire le fichier CSV
+        fs.writeFile(filePath, csvContent, (err) => {
+            if (err) {
+                console.error('Erreur lors de l\'écriture du fichier:', err);
+                return;
+            }
+            alert(`Fichier CSV enregistré : ${filePath}`);
+        });
     });
 }
+
 {/*
     // Créer un lien pour télécharger le fichier CSV
     const blob = new Blob([csvContent], { type: 'text/csv' });
