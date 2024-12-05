@@ -1,7 +1,7 @@
 Je pense qu'il faut faire les trucs suivants: 
 
 - Récupération des données de la saisie du Scouting Pit pour définir une première stratégie
-- Mise à jour des données du scouting MATCH pour impacter de 60% la stratégie de game
+- Mise à jour des données du scouting MATCH pour impacter de 60% la stratégie de game --unsure
 
 IA: 
 - Définition d'une stratégie de game basée sur les données du scouting pit et match.
