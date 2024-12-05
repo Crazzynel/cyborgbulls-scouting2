@@ -58,7 +58,10 @@ const createMainWindow = () => {
         show: false,
         icon: '9102.png',
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js') // Charger preload.js
+            preload: path.join(__dirname, 'preload.js'), // Charger preload.js
+            nodeIntegration: true,
+            contextIsolation: false
+            
         }
     });
 
