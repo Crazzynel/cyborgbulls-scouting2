@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const view_teams = [
     { id: 296, name: 'Northern Knights' },
     { id: 2626, name: 'Evolution' },
@@ -85,6 +88,28 @@ function generateCSV() {
     // Convertir le tableau en texte CSV
     const csvContent = csvRows.map(row => row.join(',')).join('\n');
 
+    // définir le chemin du dossier et du fichier
+    const dirPath = path.join(require('os').homedir(), 'Documents', 'CyborgBulls-SCOUTING25');
+    const filePath = path.join(dirPath, 'scouting-data.csv');
+
+    // On créer le dossier si il n'existe pas
+    fs.mkdir(dirPath, {recursive : true}, (err) => {
+        if (err) {
+            console.error('Erreur lors de la création du dossier:', err)
+            return;
+        }
+    
+    // Ecrire le fichier csv
+    fs.writeFile(filePath, csvContent, (err) => {
+        if (err) {
+            console.error('Erreur lors de l\'écriture du fichier:', err);
+            return;
+        }
+        alert("Fichier CSV enregistré à l'emplacement:", filePath)
+    });
+    });
+}
+{/*
     // Créer un lien pour télécharger le fichier CSV
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
@@ -96,7 +121,7 @@ function generateCSV() {
 
     alert("Fichier CSV généré !");
 }
-
+*/}
 
 
 // Fonction d'initialisation de l'application
