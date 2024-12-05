@@ -143,6 +143,7 @@
     "keyv": "^4.5.4",
     "lazy-val": "^1.0.5",
     "lazystream": "^1.0.1",
+    "license-checker": "^25.0.1",
     "lodash": "^4.17.21",
     "lodash.defaults": "^4.2.0",
     "lodash.difference": "^4.5.0",
