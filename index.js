@@ -27,7 +27,7 @@ function navigateToPitScouting() {
 
 function navigateToMatchScouting() {
     console.log('Navigating to Match Scouting');
-    window.location.href = "./execute_scout/match/test.html";
+    window.location.href = "./execute_scout/match/match.html";
 }
 
 function redirectToAdminLog() {
