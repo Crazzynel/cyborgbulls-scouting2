@@ -133,22 +133,59 @@ window.addEventListener("load", () => {
   const generateCSVButton = document.getElementById("generateCSV");
 
   function generateCSV() {
+    // Récupérer les informations depuis les champs d'entrée
+    const matchType = document.getElementById("match-type").value;
+    const matchNumber = document.getElementById("match-number").value.trim();
+    const teamNumber = document.getElementById("teamNumber").value.trim();
+  
+    // Valider les entrées
+    if (!matchType || !matchNumber || !teamNumber) {
+      alert("Veuillez remplir tous les champs : type de match, numéro de match et numéro d'équipe.");
+      return;
+    }
+  
+    // Récupérer les données du tableau
     const rows = Array.from(document.querySelectorAll(".summary-table tbody tr")).map(row =>
       Array.from(row.cells).map(cell => cell.textContent.trim()).join(",")
     );
-
+  
     const csvContent = [
       "Action,Clics,Points,Période,Joueur Humain",
       ...rows
     ].join("\n");
-
-    const csvBlob = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
-    const downloadLink = document.createElement("a");
-    downloadLink.href = URL.createObjectURL(csvBlob);
-    downloadLink.download = "actions_summary.csv";
-    downloadLink.click();
-
-    alert("Votre fichier CSV a bien été généré !");
+  
+    // Définir le dossier de destination et gérer les doublons dans le nom de fichier
+    const fs = require("fs");
+    const path = require("path");
+    const os = require("os");
+  
+    const dirPath = path.join(os.homedir(), "Documents", "CyborgBulls-SCOUTING25");
+    let filePath = path.join(dirPath, `${matchType}_${matchNumber}_${teamNumber}.csv`);
+  
+    // Vérifier et gérer les doublons
+    let counter = 1;
+    while (fs.existsSync(filePath)) {
+      filePath = path.join(dirPath, `${matchType}_${matchNumber}_${teamNumber}-${counter}.csv`);
+      counter++;
+    }
+  
+    // Créer le dossier si nécessaire
+    fs.mkdir(dirPath, { recursive: true }, err => {
+      if (err) {
+        console.error("Erreur lors de la création du dossier :", err);
+        return;
+      }
+  
+      // Écrire le CSV dans un fichier
+      fs.writeFile(filePath, csvContent, err => {
+        if (err) {
+          console.error("Erreur lors de l'écriture du fichier :", err);
+          return;
+        }
+  
+        alert(`Fichier CSV enregistré ici: ${filePath}`);
+      });
+    });
   }
 
   generateCSVButton.addEventListener("click", generateCSV);

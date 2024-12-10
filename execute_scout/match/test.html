@@ -18,6 +18,7 @@
     <!-- Section sélection de l'équipe -->
     <div class="section team-color-selection">
         <h2>Configuration des données de l'équipe</h2>
+
         <div class="color-selection">
             <input type="radio" id="redColor" name="teamColor" value="red">
             <label for="redColor" class="color-label"><i class="fas fa-circle" style="color: red;"></i> Rouge</label>
@@ -31,6 +32,18 @@
             <label for="humanPlayerCheckbox">Joueur Humain :</label>
             <input type="checkbox" id="humanPlayerCheckbox" />
         </div>
+        <div>
+            <label for="match-type">Type de match :</label>
+            <select id="match-type">
+              <option value="TEST">TEST (Dev Only)</option>
+              <option value="PRACTICE">PRACTICE</option>
+              <option value="QUALIFICATIONS">QUALIFICATIONS</option>
+            </select>
+          </div>          
+          <div>
+            <label for="match-number">Numéro du match :</label>
+            <input id="match-number" type="number" placeholder="Ex : 1">
+          </div>
     </div>
 
     <!-- Section période autonome -->
