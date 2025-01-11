@@ -1,6 +1,9 @@
 window.addEventListener("load", () => {
   const progressBar = document.querySelector(".progress");
-
+  
+  function redirectHome() {
+    window.location.href = "../../index.html";
+  }
   // Mise à jour de la barre de progression
   function updateProgress(value) {
     progressBar.style.width = value + "%";

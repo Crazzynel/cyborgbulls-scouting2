@@ -7,7 +7,7 @@
 ## Mises à Jour MAJEURES: 
 - Mise en fonction de la partie du Pit Scouting
 - Activation de la Génération du CSV sur le pit scouting.
-> Objectif de version 2.0.0 --> Faire en sorte que les retours CSV soient lisibles sur l'application via une page dédiée et prévue à cet effet.
+> Objectif de version 2.4.0 --> Faire en sorte que les retours CSV soient lisibles sur l'application via une page dédiée et prévue à cet effet.
 
 ## Mises à Jour MINEURES: 
 - Correction de l'orthographe sur les pages de Scouting Match

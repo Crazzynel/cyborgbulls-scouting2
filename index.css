@@ -140,6 +140,22 @@ img {
 }
 
 .crescendo_logo {
-    width: 170px;
+    width: 250px;
     height: auto;
+}
+
+.maintenance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    background-color: #fff6cc; /* Jaune pâle */
+    color: #333; /* Couleur contrastée */
+    border: 2px solid #f5c000; /* Bord jaune plus soutenu */
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 80%; /* Taille adaptative */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
 }
