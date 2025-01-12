@@ -1,7 +1,7 @@
 function connectionAdminPanel() {
     const codes = {
         defaultID: "CyborgBulls_Admin",
-        defaultPassword: "uzerbzrzb8257,sdgnsfn83Y"
+        defaultPassword: "9102FRCTEAM"
     };
 
     let ID = document.getElementById('userID').value;

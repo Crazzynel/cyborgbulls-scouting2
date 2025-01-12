@@ -89,26 +89,20 @@ body {
     <!-- Header de la page -->
     <header>
         <div class="container_header">
-            <h1>CYBORGBULLS - VERIFICATION DE LICENCE</h1>
+            <h1>CYBORGBULLS - Connexion</h1>
         </div>
     </header>
 
     <div class="input_form">
         <h2>Vérification de la Licence</h2>
         <!-- Champ pour saisir le nom -->
-        <input type="text" id="nom" placeholder="Nom">
-        <br>
-        <!-- Champ pour saisir le prénom -->
-        <input type="text" id="prenom" placeholder="Prénom">
-        <br>
-        <!-- Champ pour saisir la date -->
-        <input type="date" id="date" placeholder="Date">
+        <input type="text" id="pseudo" placeholder="Nom">
         <br>
         <!-- Champ pour saisir la valeur de la licence -->
-        <input type="text" id="licence" placeholder="Numéro de licence">
+        <input type="text" id="licence" placeholder="Mot de Passe">
         <br>
         <!-- Bouton pour vérifier la licence -->
-        <button onclick="verifierLicence()">Vérifier</button>
+        <button onclick="checkLog()">Vérifier</button>
         <br>
         <!-- Lien pour retourner à la page d'accueil -->
         <p>Pas de licence? <a href="index.html">Cliquez ici</a>.</p>
@@ -119,19 +113,28 @@ body {
     </div>
 
     <script>
-        var licences = {
-            licenceA: "EkzEvtS1u1vvKerpTgG1",
-            licenceB: "JCIBPEbkELZYxCSc7sBP",
-            licenceC: "mUIgUeY9h0cFgxp8Ow1d"
+        var admin = {
+            nom: "CYBORGBULLS_ADMIN",
+            mdp: "9102FRCTEAM",
+            priority: 1
         }
-        function verifierLicence() {
-            
-            // Récupérer la valeur saisie dans le champ de licence
-            // Récupérer les valeurs saisies dans les champs
-            var nom = document.getElementById("nom").value;
-            var prenom = document.getElementById("prenom").value;
-            var date = document.getElementById("date").value;
-            var licence = document.getElementById("licence").value;
+
+        function checkLog() {
+            var name = document.getElementById("pseudo")
+            var password = document.getElementById("licence")
+            if (name.value == admin.nom && password.value == admin.mdp) {
+                alert("Correct")
+                alert("Redirection vers le menu admin")
+                window.location.href="admin-panel/page.html";
+            }
+                else {
+                    alert("Le code du compte est erroné. \n Contactez technique@cyborgbulls.fr pour plus d'informations ?");
+                }
+
+        }
+        
+
+
 
             if (licence === licences.licenceA || licence === licences.licenceB || licence === licences.licenceC) {
                 // Afficher un message d'erreur si le champ est vide
