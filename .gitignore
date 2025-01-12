@@ -1,6 +1,12 @@
 /.github/**
+# Fichiers de build de l'application
 /build/
+
+# Code d'acces au compte admin
 admin_panel/ids/session.js
+
+# On ignore les tokens. Les credentials sont contenus dans ce fichier
+tokens.json
 
 # Ignorage de node_modules. Penser à faire un npm install
 node_modules/

@@ -3,6 +3,7 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const { uploadFiles } = require('./admin_panel/github/upload.js');
+const { downloadFiles } = require('./admin_panel/github/download.js');
 
 let mainWindow;
 let loadingWindow;
@@ -148,10 +149,17 @@ const createMainWindow = () => {
             ]
         },
         {
-            label: 'Synchroniser les fichiers',
+            label: 'Envoyer les fichiers',
                 click: () => {
                     // Appeler la fonction d'upload
                     uploadFiles();
+                }
+        },
+        {
+            label: 'Telecharger les fichiers',
+                click: () => {
+                    // Appeler la fonction de doznload
+                    downloadFiles();
                 }
         },
         {
