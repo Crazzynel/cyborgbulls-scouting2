@@ -164,6 +164,7 @@
     "minizlib": "^2.1.2",
     "mkdirp": "^1.0.4",
     "ms": "^2.1.2",
+    "node-fetch": "^3.3.2",
     "normalize-path": "^3.0.0",
     "normalize-url": "^6.1.0",
     "object-keys": "^1.1.1",
