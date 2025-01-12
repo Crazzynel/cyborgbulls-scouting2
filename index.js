@@ -32,6 +32,7 @@ async function checkForUpdates() {
   
       if (response.status === 200) {
         const remoteVersion = response.data.tag_name; // Version distante
+        console.log('Version locale:', localVersion)
         console.log('Version distante :', remoteVersion); // Affichage de la version distante
   
         if (remoteVersion !== localVersion) {

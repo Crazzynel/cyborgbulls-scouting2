@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu } = require('electron');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
+const { uploadFiles } = require('./admin_panel/github/upload.js');
 
 let mainWindow;
 let loadingWindow;
@@ -145,6 +146,13 @@ const createMainWindow = () => {
                     }
                 },
             ]
+        },
+        {
+            label: 'Synchroniser les fichiers',
+                click: () => {
+                    // Appeler la fonction d'upload
+                    uploadFiles();
+                }
         },
         {
             label: 'Contributions',
