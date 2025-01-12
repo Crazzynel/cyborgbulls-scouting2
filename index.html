@@ -22,49 +22,44 @@
     </header>
 <!-- Ajouter Font Awesome pour les icônes -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-<div style="
-  display: flex;
-  border: 1px solid #f5c000; /* Couleur du cadre */
-  border-radius: 6px;
-  background-color: #fffef3; /* Jaune pâle */
-  margin: 20px auto;
-  max-width: 90%; /* Adaptable à l'écran */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Titillium Web', sans-serif;
-">
-  <!-- Bande colorée sur le côté gauche -->
-  <div style="
-    background-color: #f5c000;
-    width: 5px;
-    border-radius: 6px 0 0 6px;
-  "></div>
+<div id="update-banner" class="update-banner" style="display: none;">  <!-- Bande colorée sur le côté gauche -->
+  <div class="banner-side-bar"></div>
 
   <!-- Contenu principal -->
-  <div style="padding: 15px 20px; flex-grow: 1;">
+  <div class="banner-content" >
     <!-- Ligne du titre avec l'icône -->
-    <div style="display: flex; align-items: center; margin-bottom: 10px;">
-      <i class="fas fa-exclamation-circle" style="font-size: 20px; color: #f5c000; margin-right: 10px;"></i>
-      <h3 style="
-        margin: 0;
-        font-size: 18px;
-        color: #333;
-        font-weight: bold;
-      ">
-        Maintenance en cours
-      </h3>
+    <div class="banner-header">
+      <i class="fas fa-sync-alt banner-icon"></i>
+      <h3 class="banner-title">Mise à jour disponible</h3>
     </div>
     <!-- Texte explicatif -->
-    <p style="
-      margin: 0;
-      font-size: 16px;
-      color: #555;
-      line-height: 1.5;
-    ">
-      Pour le lancement de cette saison 2025, nous travaillons actuellement à adapter le scouting au nouveau défi <strong>Reefscape</strong>, après Crescendo. Merci de votre patience !
+    <p class="banner-text">
+      Une nouvelle version est disponible ! Cliquez sur le bouton ci-dessous pour découvrir les nouveautés et mettre à jour vers la dernière version.
+    </p>
+    <!-- Bouton d'accès à la release -->
+    <a href="https://github.com/crazzynel/cyborgbulls-scouting2/releases/latest" class="update-button" target="_blank">Voir la release</a>
+  </div>
+</div>
+
+<div class="maintenance-banner">
+  <!-- Bande colorée sur le côté gauche -->
+  <div class="banner-side-bar"></div>
+
+  <!-- Contenu principal -->
+  <div class="banner-content">
+    <!-- Ligne du titre avec l'icône -->
+    <div class="banner-header">
+      <i class="fas fa-exclamation-circle banner-icon"></i>
+      <h3 class="banner-title">Maintenance en cours</h3>
+    </div>
+    <!-- Texte explicatif -->
+    <p class="banner-text">
+      Pour le lancement de cette saison 2025, nous travaillons actuellement à adapter le scouting au nouveau défi 
+      <strong>Reefscape</strong>, après Crescendo. Merci de votre patience !
     </p>
   </div>
 </div>
+
 
 
     <main>
@@ -93,7 +88,7 @@
             </button>
         </div>
         <br>
-        <button onclick="redirectToAdminLog()">Access to GLOBAL VIEW</button>
+        <button onclick="redirectToAdminLog()">Access to Admin PANEL</button>
     </main>
     <footer class="dark-mode">
         <p>&copy; 2025 CyborgBulls - Tous Droits Réservés.</p>

@@ -159,3 +159,118 @@ img {
     font-family: 'Titillium Web', sans-serif;
     font-size: 16px;
 }
+
+.maintenance-banner {
+    display: flex;
+    border: 1px solid #f5c000; /* Couleur du cadre */
+    border-radius: 6px;
+    background-color: #fffef3; /* Jaune pâle */
+    margin: 20px auto;
+    max-width: 90%; /* Adaptable à l'écran */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Titillium Web', sans-serif;
+  }
+  
+  .banner-side-bar {
+    background-color: #f5c000;
+    width: 5px;
+    border-radius: 6px 0 0 6px;
+  }
+  
+  .banner-content {
+    padding: 15px 20px;
+    flex-grow: 1;
+  }
+  
+  .banner-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .banner-icon {
+    font-size: 20px;
+    color: #f5c000;
+    margin-right: 10px;
+  }
+  
+  .banner-title {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .banner-text {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Bannière de mise à jour */
+.update-banner {
+  display: flex;
+  border: 1px solid #007bff; /* Couleur du cadre */
+  border-radius: 6px;
+  background-color: #f0f8ff; /* Bleu pâle */
+  margin: 20px auto;
+  max-width: 90%; /* Adaptable à l'écran */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.update-banner .banner-side-bar {
+  background-color: #007bff;
+  width: 5px;
+  border-radius: 6px 0 0 6px;
+}
+
+.update-banner .banner-content {
+  padding: 15px 20px;
+  flex-grow: 1;
+}
+
+.update-banner .banner-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.update-banner .banner-icon {
+  font-size: 20px;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+.update-banner .banner-title {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.update-banner .banner-text {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.update-banner .update-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.update-banner .update-button:hover {
+  background-color: #0056b3;
+}
