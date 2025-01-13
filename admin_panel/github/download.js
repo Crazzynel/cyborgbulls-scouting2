@@ -60,6 +60,7 @@ const downloadFiles = async () => {
 
         if (files.length === 0) {
             dialog.showErrorBox('Erreur', 'Aucun fichier CSV trouvé dans le dépôt.');
+            progressWindow.close();
             return;
         }
 
@@ -90,6 +91,7 @@ const downloadFiles = async () => {
     } catch (error) {
         console.error('Erreur lors du téléchargement des fichiers :', error);
         dialog.showErrorBox('Erreur', 'Une erreur est survenue lors du téléchargement des fichiers.');
+        progressWindow.close();
     }
 };
 
