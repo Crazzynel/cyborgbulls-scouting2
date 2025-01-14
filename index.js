@@ -21,7 +21,7 @@ function prefillScouterName() {
 
 // Vérification des mises à jour
 async function checkForUpdates() {
-    const localVersion = 'scouting_v.1.6.0_stable'; // Version locale
+    const localVersion = 'scouting_v.1.14.0_stable'; // Version locale
     const githubApiUrl = 'https://api.github.com/repos/crazzynel/cyborgbulls-scouting2/releases/latest'; // URL API GitHub
   
     console.log('Début de la vérification des mises à jour...');
@@ -32,7 +32,7 @@ async function checkForUpdates() {
   
       if (response.status === 200) {
         const remoteVersion = response.data.tag_name; // Version distante
-        console.log('Version locale:', localVersion)
+        //console.log('Version locale:', localVersion)
         console.log('Version distante :', remoteVersion); // Affichage de la version distante
   
         if (remoteVersion !== localVersion) {
@@ -61,11 +61,6 @@ async function checkForUpdates() {
     checkForUpdates();
   });
     
-  // Lancer la vérification une fois la page complètement chargée
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('Page complètement chargée, vérification des mises à jour...');
-    checkForUpdates();
-  });
   
 
 // Navigation entre les pages

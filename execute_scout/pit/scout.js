@@ -76,7 +76,7 @@ function generateCSV() {
     const csvContent = csvRows.map(row => row.join(',')).join('\n');
 
     // Définir le dossier et le fichier
-    const dirPath = path.join(require('os').homedir(), 'Documents', 'CyborgBulls-SCOUTING25');
+    const dirPath = path.join(require('os').homedir(), 'Documents', 'CyborgBulls-SCOUTING25', 'Pit');
     let baseFileName = `pit_scout_${appData.selectedTeam}`;
     let filePath = path.join(dirPath, `${baseFileName}.csv`);
     let suffix = 1;
