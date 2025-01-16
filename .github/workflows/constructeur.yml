@@ -1,4 +1,4 @@
-name: Créer l'application
+name: Build
 
 on:
   push:
@@ -13,6 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -24,9 +27,18 @@ jobs:
       - name: Check build status
         id: check_status
         run: |
-          STATUS=$(jq -r '.["build-status"]' deployer.json)
+          STATUS=$(jq -r '.["build-status"]' ./deployer.json)
           echo "::set-output name=status::$STATUS"
 
       - name: Run build if status is valid
         if: steps.check_status.outputs.status == 'Valid'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run build -- --config electron-builder.yaml
+
+      - name: Publish artifact
+        if: steps.check_status.outputs.status == 'Valid'
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: build/
