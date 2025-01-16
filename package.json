@@ -1,6 +1,6 @@
 {
   "name": "cyborgbulls-scouting",
-  "version": "2.1.14",
+  "version": "2.1.16",
   "description": "App de scouting CyborgBulls - VERSION KICK-OFF",
   "main": "main.js",
   "scripts": {
