@@ -27,8 +27,8 @@ jobs:
       - name: Check build status
         id: check_status
         run: |
-          STATUS=$(jq -r '.["build-status"]' ./deployer.json)
-          echo "::set-output name=status::$STATUS"
+          $status = (Get-Content ./deployer.json | ConvertFrom-Json)."build-status"
+          echo "::set-output name=status::$status"
 
       - name: Run build if status is valid
         if: steps.check_status.outputs.status == 'Valid'
