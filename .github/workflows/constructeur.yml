@@ -38,7 +38,7 @@ jobs:
 
       - name: Publish artifact
         if: steps.check_status.outputs.status == 'Valid'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build-artifact
           path: build/
