@@ -1,0 +1,32 @@
+name: Créer l'application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check build status
+        id: check_status
+        run: |
+          STATUS=$(jq -r '.["build-status"]' deployer.json)
+          echo "::set-output name=status::$STATUS"
+
+      - name: Run build if status is valid
+        if: steps.check_status.outputs.status == 'Valid'
+        run: npm run build -- --config electron-builder.yaml
